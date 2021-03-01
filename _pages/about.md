@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 
-I am Ml engineer at [SteadySun](https://www.steady-sun.com/). I am interested on ML/DL in general, active contributor to the fastai library.
+I am Ml engineer at [SteadySun](https://www.steady-sun.com/). I am interested on ML/DL in general, active contributor to the [fastai community](https://forums.fast.ai/u/tcapelle/summary).
 Currently, I have been exploring on model serving and deploying, and the various details that may make your model crash or perform poorly.
 
 
@@ -14,7 +14,7 @@ Currently, I have been exploring on model serving and deploying, and the various
 [2020-present] **ML Engineer** @[Steady Sun](http://steadysun.fr)
 - Developing of next version of short term forecasting algorithm based on sky imager.
 - Integration of ML tools to the steadysun code base.
-- R&D in Deep Learning  for detection/segmentation and forecasting of sky images.
+- R&D in Deep Learning for detection/segmentation and forecasting of sky images.
 - Collaboration with NVDIA AI on deployement and production of DL models.
 
 [2018-2020] **Research Engineer** @[INES CEA](http://cea.fr)
@@ -55,5 +55,5 @@ The full list of my publications is available via [Google Scholar](https://schol
 
 **Spanish** (mothertongue) - **French** (native) - **English** (full professional proficiency C1) 
 
-- You can download my beautiful LaTeX CV [here](cv_EN.pdf)
+- You can download my beautiful LaTeX CV [here]({{site.baseurl}}/cv_EN.pdf)
 - My Kaggle profile [here](https://www.kaggle.com/tcapelle)
