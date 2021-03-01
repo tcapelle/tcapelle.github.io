@@ -10,4 +10,4 @@ Currently, I have been exploring on model serving and deploying, and the various
 
 For more info and my detailed CV, you can check my minimal website [here](https://tcapelle.github.io/)
 
-Thomas Capelle.
+Thomas Capelle
