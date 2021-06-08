@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 
-I am Ml engineer at [SteadySun](https://www.steady-sun.com/). I am interested on ML/DL in general, active contributor to the [fastai community](https://forums.fast.ai/u/tcapelle/summary).
+I am ML engineer at [SteadySun](https://www.steady-sun.com/). I am interested on ML/DL in general, active contributor to the [fastai community](https://forums.fast.ai/u/tcapelle/summary).
 Currently, I have been exploring on model serving and deploying, and the various details that may make your model crash or perform poorly.
 
 
@@ -55,5 +55,5 @@ The full list of my publications is available via [Google Scholar](https://schol
 
 **Spanish** (mothertongue) - **French** (native) - **English** (full professional proficiency C1) 
 
-- You can download my beautiful LaTeX CV [here]({{site.baseurl}}/cv_EN.pdf)
+- You can download my beautiful LaTeX CV [here](https://github.com/tcapelle/CV/blob/master/cv_EN.pdf)
 - My Kaggle profile [here](https://www.kaggle.com/tcapelle)
