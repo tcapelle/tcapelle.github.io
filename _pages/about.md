@@ -4,14 +4,21 @@ title: About Me
 permalink: /about/
 ---
 
+Hello! I am Thomas Capelle, Machine Learning engineer at [Weights and Biases](http://wandb.com) working on the Growth Team. I am responsible of keeping the [wandb/examples](http://github.com/wandb/examples) repository live and up to date. I also build content on ML-OPS, application of `wandb` to industry and fun deep learning in general. Previously I was using depp learning to solve short term forecasting for solar energy at [Steady Sun](http://steadysun.fr). I have a background in Urban Planning, Combinatorial Optimization, Transportation Economics and Applied Math.
 
-I am ML engineer at [SteadySun](https://www.steady-sun.com/). I am interested on ML/DL in general, active contributor to the [fastai community](https://forums.fast.ai/u/tcapelle/summary).
-Currently, I have been exploring on model serving and deploying, and the various details that may make your model crash or perform poorly.
 
+
+I love contributing to OSS and the ML community, some of my resources:
+- The awesome [fastai community](https://forums.fast.ai/u/tcapelle/summary).
 
 
 ## Experience
-[2020-present] **ML Engineer** @[Steady Sun](http://steadysun.fr)
+[2022-present] **ML Engineer** @[Weights and Biases](http://wandb.com)
+- Improving use experience through examples in [wandb/examples](http://github.com/wandb/examples).
+- Creating content for [fully-connected](https://wandb.com/fc) on how to make machine learning better.
+- Help companies integrating wandb into their MLOPS workflows.
+
+[2020-2021] **ML Engineer** @[Steady Sun](http://steadysun.fr)
 - Developing of next version of short term forecasting algorithm based on sky imager.
 - Integration of ML tools to the steadysun code base.
 - R&D in Deep Learning for detection/segmentation and forecasting of sky images.
@@ -55,5 +62,5 @@ The full list of my publications is available via [Google Scholar](https://schol
 
 **Spanish** (mothertongue) - **French** (native) - **English** (full professional proficiency C1) 
 
-- You can download my beautiful LaTeX CV [here](https://github.com/tcapelle/CV/blob/master/cv_EN.pdf)
+- You can download my beautiful LaTeX CV [here](https://github.com/tcapelle/CV/blob/master/cv_EN.pdf) **Needs Update**
 - My Kaggle profile [here](https://www.kaggle.com/tcapelle)
