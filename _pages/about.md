@@ -4,7 +4,7 @@ title: About Me
 permalink: /about/
 ---
 
-Hello! I am Thomas Capelle, Machine Learning engineer at [Weights and Biases](http://wandb.com) working on the Growth Team. I am responsible of keeping the [wandb/examples](http://github.com/wandb/examples) repository live and up to date. I also build content on ML-OPS, application of `wandb` to industry and fun deep learning in general. Previously I was using depp learning to solve short term forecasting for solar energy at [Steady Sun](http://steadysun.fr). I have a background in Urban Planning, Combinatorial Optimization, Transportation Economics and Applied Math.
+Hello! I am Thomas Capelle, Machine Learning engineer at [Weights and Biases](http://wandb.com) working on the Growth Team. I am responsible of keeping the [wandb/examples](http://github.com/wandb/examples) repository live and up to date. I also build content on ML-OPS, application of `wandb` to industry and fun deep learning in general. Previously I was using deep learning to solve short term forecasting for solar energy at [Steady Sun](http://steadysun.fr). I have a background in Urban Planning, Combinatorial Optimization, Transportation Economics and Applied Math.
 
 
 
