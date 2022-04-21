@@ -62,5 +62,8 @@ The full list of my publications is available via [Google Scholar](https://schol
 
 **Spanish** (mothertongue) - **French** (native) - **English** (full professional proficiency C1) 
 
-- You can download my beautiful LaTeX CV [here](https://github.com/tcapelle/CV/blob/master/cv_EN.pdf) **Needs Update**
+- You can download my beautiful LaTeX CV [here](https://github.com/tcapelle/CV/releases/latest)
 - My Kaggle profile [here](https://www.kaggle.com/tcapelle)
+
+
+@cannes22
