@@ -16,6 +16,6 @@ I am Thomas, Machine Learning engineer at [Weights and Biases](http://wandb.com)
 
 These days I build AI applications for the enterprise. Mostly supporting Weights & Biases customers trying to get started on GenAI.
 
-![granier](blog_data/granier.jpg)
+![Mont Granier, Savoie, France](blog_data/granier.jpg)
 
 ## 🙃 Articles
