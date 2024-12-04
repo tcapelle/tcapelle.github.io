@@ -8,7 +8,7 @@ listing:
   filter-ui: false
   contents: [external_posts.yml, posts]
 page-layout: full
-title-block-banner: true
+title-block-banner: false
 ---
 
 
