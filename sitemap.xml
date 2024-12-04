@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://tcapelle.github.io/pytorch/fastai/2021/02/26/image_resizing.html</loc>
-<lastmod>2021-02-26T00:00:00-06:00</lastmod>
-</url>
-<url>
-<loc>https://tcapelle.github.io/pytorch/fastai/cv/2021/03/15/image_sequences.html</loc>
-<lastmod>2021-03-15T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>https://tcapelle.github.io/pytorch/fastai/cv/2021/05/01/moving_mnist.html</loc>
-<lastmod>2021-05-01T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>https://tcapelle.github.io/pytorch/fastai/cv/2021/06/11/save_segmentation_masks.html</loc>
-<lastmod>2021-06-11T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>https://tcapelle.github.io/about/</loc>
-</url>
-<url>
-<loc>https://tcapelle.github.io/</loc>
-</url>
-<url>
-<loc>https://tcapelle.github.io/search/</loc>
-</url>
-<url>
-<loc>https://tcapelle.github.io/categories/</loc>
-</url>
-<url>
-<loc>https://tcapelle.github.io/cv_EN.pdf</loc>
-<lastmod>2022-07-13T07:14:41-05:00</lastmod>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://tcapelle.github.io/about.html</loc>
+    <lastmod>2024-12-04T21:16:33.569Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tcapelle.github.io/talks.html</loc>
+    <lastmod>2024-12-04T21:16:33.672Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tcapelle.github.io/posts/2021-03-15-image_sequences.html</loc>
+    <lastmod>2024-12-04T21:16:33.632Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tcapelle.github.io/posts/2021-02-26-image_resizing.html</loc>
+    <lastmod>2024-12-04T21:16:33.623Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tcapelle.github.io/posts/bluesky_toxicity/flagging_toxic_content.html</loc>
+    <lastmod>2024-12-04T21:16:33.640Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tcapelle.github.io/posts/2021-05-01-moving_mnist.html</loc>
+    <lastmod>2024-12-04T21:16:33.638Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tcapelle.github.io/posts/2021-06-11-save_segmentation_masks.html</loc>
+    <lastmod>2024-12-04T21:16:33.639Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tcapelle.github.io/index.html</loc>
+    <lastmod>2024-12-04T21:16:33.611Z</lastmod>
+  </url>
 </urlset>

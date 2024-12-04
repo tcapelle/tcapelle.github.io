@@ -1,0 +1,12 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/bluesky_toxicity/flagging_toxic_content.html",
+      "/posts/2021-06-11-save_segmentation_masks.html",
+      "/posts/2021-05-01-moving_mnist.html",
+      "/posts/2021-03-15-image_sequences.html",
+      "/posts/2021-02-26-image_resizing.html"
+    ]
+  }
+]
