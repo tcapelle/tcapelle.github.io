@@ -2,17 +2,28 @@ project:
   type: website
 
 website:
-  title: "capeblog"
+  title: "capepage"
   navbar:
-    right:
+    title: false
+    background: dark
+    pinned: true
+    collapse: false
+    favicon: favicon.ico
+    left:
       - about.qmd
+      - index.qmd 
+      - talks.qmd
       - icon: github
         href: https://github.com/tcapelle
       - icon: twitter
         href: https://x.com/capetorch
       - icon: linkedin
         href: https://www.linkedin.com/in/thomas-capelle-3b918671/
+      - icon: bluesky
+        href: https://bsky.app/profile/capetorch.bsky.social
+  repo-url: https://github.com/tcapelle/tcapelle.github.io
+  repo-actions: [edit]
 format:
   html:
-    theme: cosmo
+    theme: flatly
     css: styles.css

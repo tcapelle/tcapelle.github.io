@@ -2,9 +2,9 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "capecape",
     "section": "",
-    "text": "Hello! I am Thomas Capelle, Machine Learning engineer at Weights and Biases working on the AI Applied Team. I am responsible of keeping the wandb/examples repository live and up to date. I also build content on ML-OPS, application of wandb to industry and fun deep learning in general. Previously I was using deep learning to solve short term forecasting for solar energy at Steady Sun. I have a background in Urban Planning, Combinatorial Optimization, Transportation Economics and Applied Math.\nI love contributing to OSS and the ML community!\n\n\n[2022-present] ML Engineer @Weights and Biases - Improving use experience through examples in wandb/examples. - Creating content for fully-connected on how to make machine learning better. - Help companies integrating wandb into their MLOPS workflows.\n[2020-2021] ML Engineer @Steady Sun - Developing of next version of short term forecasting algorithm based on sky imager. - Integration of ML tools to the steadysun code base. - R&D in Deep Learning for detection/segmentation and forecasting of sky images. - Collaboration with NVDIA AI on deployement and production of DL models.\n[2018-2020] Research Engineer @INES CEA - Development of algorithms for failure detection in Photovoltaic Systems - Deep Learning model for parameter regression for IV-curve of photovoltaic modules - Thermal Image segmentation and classification model - Project engineer and coordination for Franco-Chilean partnership, international cooperation with multidisciplinary laboratories.\n[2017-2018] Research Engineer @Inria - Integration of spatial models with air quality and forecast models.\n[2013–2016] PhD équipe STEEP @Inria - Development of mathematical frameworks for urban/transport model calibration - Multidisciplinary team work (Engineers, Economists, Urbanists) - Supervision of interns work - International conferences and peer-reviewed publications\n[2011] Master Internship @CIRRELT - Polytech Montréal - Location and Routing modelling : Development of algorithms for logistics - Implementation of a Column Generation algorithm\n[2010] Assistant Professor @Universidad de los Andes - Analysis and Algebra for engineers\n\n\n\nThe full list of my publications is available via Google Scholar\n\n\n\nPhD in Computer Science, Université de Grenoble - 2017\nMSc in Civil Engineering - Transport, Universidad de Chile - 2013\nMathematical Engineer, Universidad de Chile - 2013\n\n\n\nSpanish (mothertongue) - French (native) - English (full professional proficiency C1)\n\nYou can download my beautiful LaTeX CV here\nMy Kaggle profile here"
+    "text": "Hello! I am Thomas Capelle (cape), Machine Learning engineer at Weights & Biases working on the AI Applied Team. I am responsible for keeping the wandb/examples repository live and up to date. I also build content on ML-OPS, application of wandb to industry and fun deep learning in general. Previously I was using deep learning to solve short term forecasting for solar energy at Steady Sun. I have a background in Urban Planning, Combinatorial Optimization, Transportation Economics and Applied Math.\nI love contributing to OSS and the ML community!"
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -186,34 +186,97 @@
     "href": "index.html",
     "title": "capeblog",
     "section": "",
-    "text": "I am Thomas, Machine Learning engineer at Weights and Biases working on the AI Applied Team.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nDec 4, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nDec 1, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\n\n\n\n\n\n\nExport Segmentation Masks\n\n\n\n\n\n\nPytorch\n\n\nfastai\n\n\ncv\n\n\n\nHow to save the outputs of your model to disk\n\n\n\n\n\nJun 11, 2021\n\n\nThomas Capelle\n\n\n\n\n\n\n\n\n\n\n\n\nMoving MNIST\n\n\n\n\n\n\nPytorch\n\n\nfastai\n\n\ncv\n\n\n\nHow to use fastai to predict the movement of numbers\n\n\n\n\n\nMay 1, 2021\n\n\nThomas Capelle\n\n\n\n\n\n\n\n\n\n\n\n\nUsing fastai on sequences of Images\n\n\n\n\n\n\nPytorch\n\n\nfastai\n\n\ncv\n\n\n\nHow to use fastai to train an image sequence to image sequence job.\n\n\n\n\n\nMar 15, 2021\n\n\nThomas Capelle\n\n\n\n\n\n\n\n\n\n\n\n\nThe Devil lives in the details\n\n\n\n\n\n\nPytorch\n\n\nfastai\n\n\n\nResizing method matters…\n\n\n\n\n\nFeb 26, 2021\n\n\nThomas Capelle\n\n\n\n\n\n\nNo matching items"
+    "text": "I am Thomas, Machine Learning engineer at Weights and Biases working on the AI Applied Team.\nThese days I build AI applications for the enterprise. Mostly supporting Weights & Biases customers trying to get started on GenAI."
   },
   {
     "objectID": "about.html#experience",
     "href": "about.html#experience",
-    "title": "About",
-    "section": "",
-    "text": "[2022-present] ML Engineer @Weights and Biases - Improving use experience through examples in wandb/examples. - Creating content for fully-connected on how to make machine learning better. - Help companies integrating wandb into their MLOPS workflows.\n[2020-2021] ML Engineer @Steady Sun - Developing of next version of short term forecasting algorithm based on sky imager. - Integration of ML tools to the steadysun code base. - R&D in Deep Learning for detection/segmentation and forecasting of sky images. - Collaboration with NVDIA AI on deployement and production of DL models.\n[2018-2020] Research Engineer @INES CEA - Development of algorithms for failure detection in Photovoltaic Systems - Deep Learning model for parameter regression for IV-curve of photovoltaic modules - Thermal Image segmentation and classification model - Project engineer and coordination for Franco-Chilean partnership, international cooperation with multidisciplinary laboratories.\n[2017-2018] Research Engineer @Inria - Integration of spatial models with air quality and forecast models.\n[2013–2016] PhD équipe STEEP @Inria - Development of mathematical frameworks for urban/transport model calibration - Multidisciplinary team work (Engineers, Economists, Urbanists) - Supervision of interns work - International conferences and peer-reviewed publications\n[2011] Master Internship @CIRRELT - Polytech Montréal - Location and Routing modelling : Development of algorithms for logistics - Implementation of a Column Generation algorithm\n[2010] Assistant Professor @Universidad de los Andes - Analysis and Algebra for engineers"
+    "title": "capecape",
+    "section": "Experience",
+    "text": "Experience\n\nWeights & Biases\nML Engineer (2022-present)\n\nLLMs everywhere: Fine-tuning, aligning, using, deploying, quantizing, eating for breakfast\nImproving user experience through examples in wandb/examples\nCreating content for fully-connected on how to make machine learning better\nHelp companies integrating wandb into their MLOPS workflows\n\n\n\nSteady Sun\nML Engineer (2020-2021)\n\nDeveloping next version of short term forecasting algorithm based on sky imager\nIntegration of ML tools to the steadysun code base\nR&D in Deep Learning for detection/segmentation and forecasting of sky images\nCollaboration with NVIDIA AI on deployment and production of DL models\n\n\n\nINES CEA\nResearch Engineer (2018-2020)\n\nDevelopment of algorithms for failure detection in Photovoltaic Systems\nDeep Learning model for parameter regression for IV-curve of photovoltaic modules\nThermal Image segmentation and classification model\nProject engineer and coordination for Franco-Chilean partnership, international cooperation with multidisciplinary laboratories\n\n\n\nInria\nResearch Engineer (2017-2018)\n\nIntegration of spatial models with air quality and forecast models\n\n\n\nInria STEEP\nPhD Researcher (2013-2016)\n\nDevelopment of mathematical frameworks for urban/transport model calibration\nMultidisciplinary team work (Engineers, Economists, Urbanists)\nSupervision of interns work\nInternational conferences and peer-reviewed publications\n\n\n\nCIRRELT\nMaster Intern @ Polytech Montréal (2011)\n\nLocation and Routing modelling: Development of algorithms for logistics\nImplementation of a Column Generation algorithm\n\n\n\nUniversidad de los Andes\nAssistant Professor (2010)\n\nAnalysis and Algebra for engineers"
   },
   {
     "objectID": "about.html#publications",
     "href": "about.html#publications",
-    "title": "About",
-    "section": "",
-    "text": "The full list of my publications is available via Google Scholar"
+    "title": "capecape",
+    "section": "Publications",
+    "text": "Publications\nThe full list of my publications is available via Google Scholar"
   },
   {
     "objectID": "about.html#education",
     "href": "about.html#education",
-    "title": "About",
-    "section": "",
-    "text": "PhD in Computer Science, Université de Grenoble - 2017\nMSc in Civil Engineering - Transport, Universidad de Chile - 2013\nMathematical Engineer, Universidad de Chile - 2013"
+    "title": "capecape",
+    "section": "Education",
+    "text": "Education\n\n\nPhD in Computer Science\nUniversité de Grenoble\n2017\n\n\nMSc in Civil Engineering - Transport\nUniversidad de Chile\n2013\n\n\nMathematical Engineer\nUniversidad de Chile\n2013"
   },
   {
     "objectID": "about.html#languages",
     "href": "about.html#languages",
-    "title": "About",
+    "title": "capecape",
+    "section": "Languages",
+    "text": "Languages\n\n\nSpanish (mother tongue)\nFrench (native)\nEnglish (full professional proficiency C1)\n\n\n\n\nDownload LaTeX CV | Kaggle Profile"
+  },
+  {
+    "objectID": "index.html#articles",
+    "href": "index.html#articles",
+    "title": "capeblog",
+    "section": "🙃 Articles",
+    "text": "🙃 Articles"
+  },
+  {
+    "objectID": "posts/bluesky_toxicity/flagging_toxic_content.html",
+    "href": "posts/bluesky_toxicity/flagging_toxic_content.html",
+    "title": "Flagging Toxic Content on Bluesky",
     "section": "",
-    "text": "Spanish (mothertongue) - French (native) - English (full professional proficiency C1)\n\nYou can download my beautiful LaTeX CV here\nMy Kaggle profile here"
+    "text": "So you heard about the toxic comments on Bluesky…\nAs I have been working on creating Scorers for Weave for the last couple of weeks, I decided to tackle this issue with a good Toxicity scorer."
+  },
+  {
+    "objectID": "posts/bluesky_toxicity/flagging_toxic_content.html#what-is-a-toxicity-scorer",
+    "href": "posts/bluesky_toxicity/flagging_toxic_content.html#what-is-a-toxicity-scorer",
+    "title": "Flagging Toxic Content on Bluesky",
+    "section": "What is a Toxicity Scorer?",
+    "text": "What is a Toxicity Scorer?\nA Toxicity Scorer is a model that takes a text as input and returns a score to flag toxic content. These types of models are used in many applications to moderate content.\nOne of such moderation application is the OpenAI Moderation API.\nimport openai\nclient = openai.OpenAI()\n\nresponse = client.moderations.create(input=\"I want to kill myself\")\nprint(response.results[0].categories)\nprint(response.results[0].flagged)\nand the output is:\nCategories(harassment=False, harassment_threatening=False, hate=False, hate_threatening=False, illicit=None, illicit_violent=None, self_harm=True, self_harm_instructions=False, self_harm_intent=True, sexual=False, sexual_minors=False, violence=False, violence_graphic=False, self-harm=True, sexual/minors=False, hate/threatening=False, violence/graphic=False, self-harm/intent=True, self-harm/instructions=False, harassment/threatening=False)\nTrue"
+  },
+  {
+    "objectID": "posts/bluesky_toxicity/flagging_toxic_content.html#there-are-good-open-source-alternatives",
+    "href": "posts/bluesky_toxicity/flagging_toxic_content.html#there-are-good-open-source-alternatives",
+    "title": "Flagging Toxic Content on Bluesky",
+    "section": "There are good open-source alternatives",
+    "text": "There are good open-source alternatives\nThere are good open-source alternatives to the OpenAI Moderation API. For instance Pleias/celadon is fantastic little model that runs perfectly fine on CPU.\nI did some repacking of the model to make it easier to use:\nfrom transformers import AutoModelForSequenceClassification\n\nAutoModelForSequenceClassification.from_pretrained(\"tcapelle/celadon\", trust_remote_code=True)\n\nI packed the model code so you can use it directly with AutoModelForSequenceClassification."
+  },
+  {
+    "objectID": "posts/bluesky_toxicity/flagging_toxic_content.html#what-about-bluesky",
+    "href": "posts/bluesky_toxicity/flagging_toxic_content.html#what-about-bluesky",
+    "title": "Flagging Toxic Content on Bluesky",
+    "section": "What about Bluesky?",
+    "text": "What about Bluesky?\nThere was a bunch of toxicity related to AI in the recent weeks, related to some users uploading a dataset containing Blueky posts, directly gathered from the Bluesky API (it is an open firehose 🤣).\nMany comments were extremely toxic and some users were even banned. As I said before, bluesky has a nice API, so we can programatically retrieve the comments and flag the toxic ones."
+  },
+  {
+    "objectID": "posts/bluesky_toxicity/flagging_toxic_content.html#code",
+    "href": "posts/bluesky_toxicity/flagging_toxic_content.html#code",
+    "title": "Flagging Toxic Content on Bluesky",
+    "section": "Code",
+    "text": "Code\n\nFull script here\n\n\nConnect to the API using your credentials\nSearch for a user or post with toxic replies\nIterate over the replies and flag the toxic ones\nBlock the user that made the toxic replies\n\nThat’s it! Next time you see some toxic content, you know what to do."
+  },
+  {
+    "objectID": "talks.html",
+    "href": "talks.html",
+    "title": "capetalks",
+    "section": "",
+    "text": "Since joining Weights & Biases in 2022, I’ve had the opportunity to share my expertise through technical demos and presentations at various conferences and meetups worldwide.\nBelow are some highlights of my speaking engagements:"
+  },
+  {
+    "objectID": "talks.html#section",
+    "href": "talks.html#section",
+    "title": "capetalks",
+    "section": "2023",
+    "text": "2023\n\nAI2S2 2023 - Session on Computing Power and Algorithms, University of Geneva, November 2023\nNvidia GTC 2023 - Diffusion Models for solar forecasting, GTC 2023, March 2023"
+  },
+  {
+    "objectID": "talks.html#section-1",
+    "href": "talks.html#section-1",
+    "title": "Talks",
+    "section": "2023",
+    "text": "2023\n\nAI2S2 2023 - Session on Computing Power and Algorithms - University of Geneva\n\n\nNvidia GTC 2023 - Diffusion Models for solar forecasting"
   }
 ]

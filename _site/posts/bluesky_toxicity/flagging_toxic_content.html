@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Thomas Capelle">
+<meta name="dcterms.date" content="2024-11-30">
+<meta name="description" content="How to flag toxic content on Bluesky using an LLM toxicity scorer">
 
-<title>capecape – capepage</title>
+<title>Flagging Toxic Content on Bluesky – capeblog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,24 +23,58 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6c4e7baf916d514ef38450583c4345af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6c4e7baf916d514ef38450583c4345af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,27 +104,24 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-          <ul class="navbar-nav navbar-nav-scroll me-auto">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">capeblog</span>
+    </a>
+  </div>
+          <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
-<span class="menu-text">capecape</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">capeblog</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./talks.html"> 
-<span class="menu-text">capetalks</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/tcapelle"> <i class="bi bi-github" role="img">
@@ -104,11 +138,6 @@ ul.task-list li input[type="checkbox"] {
 </i> 
 <span class="menu-text"></span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://bsky.app/profile/capetorch.bsky.social"> <i class="bi bi-bluesky" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
 </ul>
           <div class="quarto-navbar-tools">
 </div>
@@ -117,137 +146,98 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Flagging Toxic Content on Bluesky</h1>
+                  <div>
+        <div class="description">
+          How to flag toxic content on Bluesky using an LLM toxicity scorer
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Bluesky</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Thomas Capelle </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 30, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">capecape</h1>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
-
-
-<p>Hello! I am Thomas Capelle (cape), Machine Learning engineer at <a href="https://wandb.ai/capecape">Weights &amp; Biases</a> working on the AI Applied Team. I am responsible for keeping the <a href="https://github.com/wandb/examples">wandb/examples</a> repository live and up to date. I also build content on ML-OPS, application of <code>wandb</code> to industry and fun deep learning in general. Previously I was using deep learning to solve short term forecasting for solar energy at <a href="https://steadysun.fr">Steady Sun</a>. I have a background in Urban Planning, Combinatorial Optimization, Transportation Economics and Applied Math.</p>
-<p>I love contributing to OSS and the ML community!</p>
-<p><img src="blog_data/cargo_cape.jpg" class="profile-photo img-fluid" alt="Profile photo"></p>
-<section id="experience" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="experience">Experience</h2>
-<section id="weights-biases" class="level3 company">
-<h3 class="company anchored" data-anchor-id="weights-biases">Weights &amp; Biases</h3>
-<p><strong>ML Engineer</strong> (2022-present)</p>
-<ul>
-<li>LLMs everywhere: Fine-tuning, aligning, using, deploying, quantizing, eating for breakfast</li>
-<li>Improving user experience through examples in <a href="https://github.com/wandb/examples">wandb/examples</a></li>
-<li>Creating content for <a href="https://wandb.com/fc">fully-connected</a> on how to make machine learning better</li>
-<li>Help companies integrating wandb into their MLOPS workflows</li>
-</ul>
+<p>So you heard about the toxic comments on Bluesky…</p>
+<p>As I have been working on creating Scorers for Weave for the last couple of weeks, I decided to tackle this issue with a good Toxicity scorer.</p>
+<section id="what-is-a-toxicity-scorer" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-toxicity-scorer">What is a Toxicity Scorer?</h2>
+<p>A Toxicity Scorer is a model that takes a text as input and returns a score to flag toxic content. These types of models are used in many applications to moderate content.</p>
+<p>One of such moderation application is the <a href="https://platform.openai.com/docs/guides/moderation">OpenAI Moderation API</a>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openai</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> openai.OpenAI()</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> client.moderations.create(<span class="bu">input</span><span class="op">=</span><span class="st">"I want to kill myself"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.results[<span class="dv">0</span>].categories)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.results[<span class="dv">0</span>].flagged)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and the output is:</p>
+<pre><code>Categories(harassment=False, harassment_threatening=False, hate=False, hate_threatening=False, illicit=None, illicit_violent=None, self_harm=True, self_harm_instructions=False, self_harm_intent=True, sexual=False, sexual_minors=False, violence=False, violence_graphic=False, self-harm=True, sexual/minors=False, hate/threatening=False, violence/graphic=False, self-harm/intent=True, self-harm/instructions=False, harassment/threatening=False)
+True</code></pre>
 </section>
-<section id="steady-sun" class="level3 company">
-<h3 class="company anchored" data-anchor-id="steady-sun">Steady Sun</h3>
-<p><strong>ML Engineer</strong> (2020-2021)</p>
-<ul>
-<li>Developing next version of short term forecasting algorithm based on sky imager</li>
-<li>Integration of ML tools to the steadysun code base</li>
-<li>R&amp;D in Deep Learning for detection/segmentation and forecasting of sky images</li>
-<li>Collaboration with NVIDIA AI on deployment and production of DL models</li>
-</ul>
+<section id="there-are-good-open-source-alternatives" class="level2">
+<h2 class="anchored" data-anchor-id="there-are-good-open-source-alternatives">There are good open-source alternatives</h2>
+<p>There are good open-source alternatives to the OpenAI Moderation API. For instance <a href="https://huggingface.co/Pleias/celadon">Pleias/celadon</a> is fantastic little model that runs perfectly fine on CPU.</p>
+<p>I did some repacking of the model to make it easier to use:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> AutoModelForSequenceClassification</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>AutoModelForSequenceClassification.from_pretrained(<span class="st">"tcapelle/celadon"</span>, trust_remote_code<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>I packed the model code so you can use it directly with <code>AutoModelForSequenceClassification</code>.</p>
+</blockquote>
 </section>
-<section id="ines-cea" class="level3 company">
-<h3 class="company anchored" data-anchor-id="ines-cea">INES CEA</h3>
-<p><strong>Research Engineer</strong> (2018-2020)</p>
-<ul>
-<li>Development of algorithms for failure detection in Photovoltaic Systems</li>
-<li>Deep Learning model for parameter regression for IV-curve of photovoltaic modules</li>
-<li>Thermal Image segmentation and classification model</li>
-<li>Project engineer and coordination for Franco-Chilean partnership, international cooperation with multidisciplinary laboratories</li>
-</ul>
+<section id="what-about-bluesky" class="level2">
+<h2 class="anchored" data-anchor-id="what-about-bluesky">What about Bluesky?</h2>
+<p>There was a bunch of toxicity related to AI in the recent weeks, related to some users uploading a dataset containing Blueky posts, directly gathered from the Bluesky API (it is an open firehose 🤣).</p>
+<p>Many comments were extremely toxic and some users were even banned. As I said before, bluesky has a nice API, so we can programatically retrieve the comments and flag the toxic ones.</p>
 </section>
-<section id="inria" class="level3 company">
-<h3 class="company anchored" data-anchor-id="inria">Inria</h3>
-<p><strong>Research Engineer</strong> (2017-2018)</p>
-<ul>
-<li>Integration of spatial models with air quality and forecast models</li>
-</ul>
-</section>
-<section id="inria-steep" class="level3 company">
-<h3 class="company anchored" data-anchor-id="inria-steep">Inria STEEP</h3>
-<p><strong>PhD Researcher</strong> (2013-2016)</p>
-<ul>
-<li>Development of mathematical frameworks for urban/transport model calibration</li>
-<li>Multidisciplinary team work (Engineers, Economists, Urbanists)</li>
-<li>Supervision of interns work</li>
-<li>International conferences and peer-reviewed publications</li>
-</ul>
-</section>
-<section id="cirrelt" class="level3 company">
-<h3 class="company anchored" data-anchor-id="cirrelt">CIRRELT</h3>
-<p><strong>Master Intern</strong> @ <a href="https://www.cirrelt.ca/">Polytech Montréal</a> (2011)</p>
-<ul>
-<li>Location and Routing modelling: Development of algorithms for logistics</li>
-<li>Implementation of a <a href="https://www.sciencedirect.com/science/article/pii/S0377221718304740">Column Generation algorithm</a></li>
-</ul>
-</section>
-<section id="universidad-de-los-andes" class="level3 company">
-<h3 class="company anchored" data-anchor-id="universidad-de-los-andes">Universidad de los Andes</h3>
-<p><strong>Assistant Professor</strong> (2010)</p>
-<ul>
-<li>Analysis and Algebra for engineers</li>
-</ul>
-</section>
-</section>
-<section id="publications" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="publications">Publications</h2>
-<p>The full list of my publications is available via <a href="https://scholar.google.com/citations?hl=en&amp;user=54AmAVUAAAAJ&amp;view_op=list_works&amp;gmla=AJsN-F7KXg9I52kC7hCSnQgV_2MTcXiM1PuhuT_NEaE2x3tej2k7jhuagVXFkllIfU7LEkrYY_oBISUxD2LxrZ78F1NLsFmyEoO3Lfrqree5d3tRiPU94-s">Google Scholar</a></p>
-</section>
-<section id="education" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="education">Education</h2>
-<div class="grid">
-<div class="g-col-4">
-<p><strong>PhD in Computer Science</strong><br>
-<a href="https://www.uga.fr">Université de Grenoble</a><br>
-2017</p>
-</div>
-<div class="g-col-4">
-<p><strong>MSc in Civil Engineering - Transport</strong><br>
-<a href="https://www.uchile.cl">Universidad de Chile</a><br>
-2013</p>
-</div>
-<div class="g-col-4">
-<p><strong>Mathematical Engineer</strong><br>
-<a href="https://www.dim.uchile.cl">Universidad de Chile</a><br>
-2013</p>
-</div>
-</div>
-</section>
-<section id="languages" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="languages">Languages</h2>
-<div class="d-flex justify-content-between">
-<ul>
-<li><strong>Spanish</strong> (mother tongue)</li>
-<li><strong>French</strong> (native)</li>
-<li><strong>English</strong> (full professional proficiency C1)</li>
-</ul>
-</div>
-<hr>
-<div class="d-flex justify-content-between">
-<p><a href="https://github.com/tcapelle/CV/releases/latest">Download LaTeX CV</a> | <a href="https://www.kaggle.com/tcapelle">Kaggle Profile</a></p>
-</div>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
+<blockquote class="blockquote">
+<p>Full script <a href="https://gist.github.com/tcapelle/00a348192b50ad91205f332799b680fa">here</a></p>
+</blockquote>
+<ol type="1">
+<li>Connect to the API using your credentials</li>
+<li>Search for a user or post with toxic replies</li>
+<li>Iterate over the replies and flag the toxic ones</li>
+<li>Block the user that made the toxic replies</li>
+</ol>
+<p>That’s it! Next time you see some toxic content, you know what to do.</p>
 
 
 </section>
@@ -675,4 +665,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/tcapelle/tcapelle.github.io/edit/main/about.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+</body></html>

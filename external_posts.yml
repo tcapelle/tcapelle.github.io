@@ -1,0 +1,63 @@
+- title: "How To Train a Conditional Diffusion Model From Scratch"
+  path: https://wandb.ai/capecape/train_sd/reports/How-To-Train-a-Conditional-Diffusion-Model-From-Scratch--VmlldzoyNzIzNTQ1
+  date: 2022-10-10
+  categories: [Diffusion, PyTorch]
+  description: |
+    How to train and evaluate a conditional diffusion model in pure PyTorch.
+  images: blog_data/diffusion.png
+  
+- title: "Diffusion on the Clouds: Short-term solar energy forecasting with Diffusion Models"
+  path: https://wandb.ai/capecape/ddpm_clouds/reports/GTC-Diffusion-on-the-Clouds--VmlldzozNzQ1OTkz
+  date: 2023-03-01
+  categories: [Diffusion, PyTorch]
+  description: |
+    Using diffusion models to forecast solar energy production.
+  image: blog_data/diffusion_clouds.png
+
+- title: "How to Fine-Tune an LLM Part 1: Preparing a Dataset for Instruction Tuning"
+  path: https://wandb.ai/capecape/alpaca_ft/reports/How-to-Fine-Tune-an-LLM-Part-1-Preparing-a-Dataset-for-Instruction-Tuning--Vmlldzo1NTcxNzE2
+  date: 2023-07-08
+  categories: [LLMs, PyTorch, HF, SFT]
+  description: |
+    How to prepare a dataset for instruction tuning.
+  image: blog_data/llm1.png
+
+- title: "How to Fine-Tune an LLM Part 2: Instruction Tuning Llamas"
+  path: https://wandb.ai/capecape/alpaca_ft/reports/How-to-Fine-Tune-an-LLM-Part-2-Instruction-Tuning-Llama-2--Vmlldzo1NjY0MjE1
+  date: 2023-09-20
+  categories: [LLMs, PyTorch, HF, SFT]
+  description: |
+    Instruction tuning in pure PyTorch
+  image: blog_data/llm2.png
+
+- title: "How to Fine-tune an LLM Part 3: The HuggingFace Trainer"
+  path: https://wandb.ai/capecape/alpaca_ft/reports/How-to-Fine-tune-an-LLM-Part-3-The-HuggingFace-Trainer--Vmlldzo1OTEyNjMy
+  date: 2023-10-04
+  categories: [LLMs, PyTorch, HF, SFT]
+  description: |
+    Exploring how to get the best out of the Hugging Face Trainer and subclasses
+  image: blog_data/llm3.png
+
+- title: "Is the New M2Pro Mac Mini a Deep Learning Workstation?"
+  path: https://wandb.ai/capecape/pytorch-M1Pro/reports/Is-the-New-M2Pro-Mac-Mini-a-Deep-Learning-Workstation---VmlldzozNjI3NDE5
+  date: 2023-03-01  
+  categories: [PyTorch, Apple, MPS]
+  description: |
+    Testing the new M2Pro Mac Mini as a deep learning workstation.
+  image: blog_data/macmini.png
+
+- title: "Translating Weights & Biases Documentation with GPT-4"
+  path: https://wandb.ai/capecape/docs_translate/reports/Translating-Weights-Biases-Documentation-with-GPT-4--Vmlldzo0MjQ2MzEw
+  date: 2023-07-18
+  categories: [LLMs, GPT, OpenAI]
+  description: |
+    How to use GPT-4 to translate Weights & Biases documentation to Japanese.
+  image: blog_data/translate.png
+
+- title: "How to Run LLMs Locally With llama-cpp and GGML"
+  path: https://wandb.ai/capecape/LLMs/reports/How-to-Run-LLMs-Locally-With-llama-cpp-and-GGML--Vmlldzo0Njg5NzMx
+  date: 2023-04-22
+  categories: [LLMs, llama-cpp, GGML]
+  description: |
+    GGUF and llama-cpp are a game changer for running LLMs locally.
+  image: blog_data/gguf.png

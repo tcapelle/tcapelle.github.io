@@ -1,0 +1,19 @@
+---
+title: "capetalks"
+image: blog_data/dis_2024.jpg
+sidebar: false
+---
+
+Since joining Weights & Biases in 2022, I've had the opportunity to share my expertise through technical demos and presentations at various conferences and meetups worldwide.
+
+Below are some highlights of my speaking engagements:
+
+- [IADevs 2024 - Session on Generative AI](https://www.youtube.com/live/bbMi6UxbfM4) - Chile, November 2024
+- [Fine-tuning an LLM judge to reduce hallucination: Mistral and W&B](https://www.youtube.com/watch?v=VBbq7NPWzlo&t=2s), Webinar, July 2024
+- [Nvidia GTC 2024 - Optimizing Large Language Models: An Experimental Approach to Pruning and Fine-Tuning LLama2 7B](https://www.nvidia.com/en-us/on-demand/session/gtc24-s62348/), GTC 2024, April 2024
+
+## 2023
+
+- [AI2S2 2023 - Session on Computing Power and Algorithms](https://www.youtube.com/watch?v=sv342FkfYzY), University of Geneva, November 2023
+- [Nvidia GTC 2023 - Diffusion Models for solar forecasting](https://wandb.ai/capecape/ddpm_clouds/reports/GTC-Diffusion-on-the-Clouds--VmlldzozNzQ1OTkz), GTC 2023, March 2023
+

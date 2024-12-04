@@ -3,7 +3,8 @@
     "index.qmd": [
       "posts",
       "blog_data/blogs.yml",
-      "blog/posts"
+      "blog/posts",
+      "external_posts.yml"
     ]
   }
 }
