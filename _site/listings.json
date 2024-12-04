@@ -1,0 +1,13 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/post-with-code/index.html",
+      "/posts/welcome/index.html",
+      "/posts/2021-06-11-save_segmentation_masks.html",
+      "/posts/2021-05-01-moving_mnist.html",
+      "/posts/2021-03-15-image_sequences.html",
+      "/posts/2021-02-26-image_resizing.html"
+    ]
+  }
+]

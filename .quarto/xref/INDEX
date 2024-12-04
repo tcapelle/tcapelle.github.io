@@ -1,0 +1,26 @@
+{
+  "posts/post-with-code/index.qmd": {
+    "index.html": "f239ed86"
+  },
+  "posts/2021-02-26-image_resizing.ipynb": {
+    "2021-02-26-image_resizing.html": "0eaa877b"
+  },
+  "posts/2021-05-01-moving_mnist.ipynb": {
+    "2021-05-01-moving_mnist.html": "12602ecb"
+  },
+  "posts/2021-03-15-image_sequences.ipynb": {
+    "2021-03-15-image_sequences.html": "26c1b195"
+  },
+  "posts/2021-06-11-save_segmentation_masks.ipynb": {
+    "2021-06-11-save_segmentation_masks.html": "1faf3e2f"
+  },
+  "posts/welcome/index.qmd": {
+    "index.html": "8a61f7a1"
+  },
+  "index.qmd": {
+    "index.html": "092bab3f"
+  },
+  "about.qmd": {
+    "about.html": "7054e372"
+  }
+}

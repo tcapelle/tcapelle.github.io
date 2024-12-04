@@ -1,0 +1,18 @@
+project:
+  type: website
+
+website:
+  title: "capeblog"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/tcapelle
+      - icon: twitter
+        href: https://x.com/capetorch
+      - icon: linkedin
+        href: https://www.linkedin.com/in/thomas-capelle-3b918671/
+format:
+  html:
+    theme: cosmo
+    css: styles.css
