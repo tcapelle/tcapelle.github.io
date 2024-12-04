@@ -21,7 +21,7 @@ website:
         href: https://www.linkedin.com/in/thomas-capelle-3b918671/
       - icon: bluesky
         href: https://bsky.app/profile/capetorch.bsky.social
-  repo-url: https://github.com/tcapelle/tcapelle.github.io
+  repo-url: https://github.com/tcapelle/capesite
   repo-actions: [edit]
 format:
   html:
