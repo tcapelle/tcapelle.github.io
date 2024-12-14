@@ -1,0 +1,24 @@
+---
+image: blog_data/dis_2024.jpg
+sidebar: false
+title-block-banner: false
+format:
+  html:
+    css: styles.css
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+---
+
+::: {.column-page style="text-align: center;"}
+# Connect with me
+
+![](blog_data/cannes_photo.png){.profile-photo}
+
+
+- [<i class="fa-solid fa-cloud"></i> BlueSky](https://bsky.app/profile/capetorch.bsky.social)
+- [<i class="fa-brands fa-x-twitter"></i> X.com](https://x.com/capetorch)
+- [<i class="fa-brands fa-linkedin"></i> LinkedIn](https://www.linkedin.com/in/thomas-capelle-3b918671/)
+- [<i class="fa-brands fa-github"></i> GitHub](https://github.com/tcapelle)
+- [<i class="fa-solid fa-chart-line"></i> Weights & Biases](https://wandb.ai/capecape)
+:::
