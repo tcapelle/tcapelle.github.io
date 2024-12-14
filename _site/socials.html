@@ -137,6 +137,7 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://www.linkedin.com/in/thomas-capelle-3b918671/"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
 <li><a href="https://github.com/tcapelle"><i class="fa-brands fa-github"></i> GitHub</a></li>
 <li><a href="https://wandb.ai/capecape"><i class="fa-solid fa-chart-line"></i> Weights &amp; Biases</a></li>
+<li><a href="mailto:thomas@wandb.com"><i class="fa-solid fa-envelope"></i> Email</a></li>
 </ul>
 </section>
 
@@ -233,7 +234,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/tcapelle\.github\.io\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

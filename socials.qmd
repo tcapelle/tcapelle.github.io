@@ -21,4 +21,5 @@ format:
 - [<i class="fa-brands fa-linkedin"></i> LinkedIn](https://www.linkedin.com/in/thomas-capelle-3b918671/)
 - [<i class="fa-brands fa-github"></i> GitHub](https://github.com/tcapelle)
 - [<i class="fa-solid fa-chart-line"></i> Weights & Biases](https://wandb.ai/capecape)
+- [<i class="fa-solid fa-envelope"></i> Email](mailto:thomas@wandb.com)
 :::
