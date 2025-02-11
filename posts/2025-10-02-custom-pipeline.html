@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Packing a model as a HF model – capepage</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6c4e7baf916d514ef38450583c4345af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+          <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">capecape</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">capeblog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../talks.html"> 
+<span class="menu-text">capetalks</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/tcapelle"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/capetorch"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/thomas-capelle-3b918671/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://bsky.app/profile/capetorch.bsky.social"> <i class="bi bi-bluesky" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Packing a model as a HF model</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>A practical example of repacking <a href="https://huggingface.co/vectara/hallucination_evaluation_model">Vectara’s hallucination model</a></p>
+<p>Quick intro, a HF model is a folder containing all the necessary code and checkpoint to run the model. - The weights of the model - The tokenizer - All the configuration files - The python files needed to perform inference correctly (If you are doing something non standard, etc…)</p>
+<div id="cell-2" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> AutoModelForSequenceClassification</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>vectara_model <span class="op">=</span> AutoModelForSequenceClassification.from_pretrained(<span class="st">"vectara/hallucination_evaluation_model"</span>, trust_remote_code<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>You are using a model of type HHEMv2Config to instantiate a model of type HHEMv2. This is not supported for all configurations of models and can yield errors.</code></pre>
+</div>
+</div>
+<p>First thing, the model config and model type don’t match. This is probably because the model was trained using a config and the repackaged and the <code>model_type</code> got renamed. It’s probably not an issue per-se, but let’s fix that.</p>
+<div id="cell-4" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>vectara_model.config.model_type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>'HHEMv2Config'</code></pre>
+</div>
+</div>
+<p>This is because in the <code>config.json</code> file the <code>model_type="HHEMv2Config"</code></p>
+<div id="cell-6" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>vectara_model.config</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>HHEMv2Config {
+  "_attn_implementation_autoset": true,
+  "_name_or_path": "vectara/hallucination_evaluation_model",
+  "architectures": [
+    "HHEMv2ForSequenceClassification"
+  ],
+  "auto_map": {
+    "AutoConfig": "vectara/hallucination_evaluation_model--configuration_hhem_v2.HHEMv2Config",
+    "AutoModelForSequenceClassification": "vectara/hallucination_evaluation_model--modeling_hhem_v2.HHEMv2ForSequenceClassification"
+  },
+  "id2label": {
+    "0": "hallucinated",
+    "1": "consistent"
+  },
+  "label2id": null,
+  "model_type": "HHEMv2",
+  "torch_dtype": "float32",
+  "transformers_version": "4.48.1"
+}</code></pre>
+</div>
+</div>
+<p>If we save the model again, the config will be updated.</p>
+<div id="cell-8" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>vectara_model.save_pretrained(<span class="st">"weave_models/vectara"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>no more warnings</p>
+<div id="cell-10" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>vectara_model <span class="op">=</span> AutoModelForSequenceClassification.from_pretrained(<span class="st">"weave_models/vectara"</span>, trust_remote_code<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(vectara_model.config.model_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>HHEMv2</code></pre>
+</div>
+</div>
+<section id="model-details" class="level2">
+<h2 class="anchored" data-anchor-id="model-details">Model details</h2>
+<p>Let’s load the model again and check some of the details</p>
+<div id="cell-13" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> AutoModelForSequenceClassification</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>vectara_model <span class="op">=</span> AutoModelForSequenceClassification.from_pretrained(<span class="st">"weave_models/vectara"</span>, trust_remote_code<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>vectara_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>HHEMv2ForSequenceClassification(
+  (t5): T5ForTokenClassification(
+    (transformer): T5EncoderModel(
+      (shared): Embedding(32128, 768)
+      (encoder): T5Stack(
+        (embed_tokens): Embedding(32128, 768)
+        (block): ModuleList(
+          (0): T5Block(
+            (layer): ModuleList(
+              (0): T5LayerSelfAttention(
+                (SelfAttention): T5Attention(
+                  (q): Linear(in_features=768, out_features=768, bias=False)
+                  (k): Linear(in_features=768, out_features=768, bias=False)
+                  (v): Linear(in_features=768, out_features=768, bias=False)
+                  (o): Linear(in_features=768, out_features=768, bias=False)
+                  (relative_attention_bias): Embedding(32, 12)
+                )
+                (layer_norm): T5LayerNorm()
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+              (1): T5LayerFF(
+                (DenseReluDense): T5DenseGatedActDense(
+                  (wi_0): Linear(in_features=768, out_features=2048, bias=False)
+                  (wi_1): Linear(in_features=768, out_features=2048, bias=False)
+                  (wo): Linear(in_features=2048, out_features=768, bias=False)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                  (act): NewGELUActivation()
+                )
+                (layer_norm): T5LayerNorm()
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+          (1-11): 11 x T5Block(
+            (layer): ModuleList(
+              (0): T5LayerSelfAttention(
+                (SelfAttention): T5Attention(
+                  (q): Linear(in_features=768, out_features=768, bias=False)
+                  (k): Linear(in_features=768, out_features=768, bias=False)
+                  (v): Linear(in_features=768, out_features=768, bias=False)
+                  (o): Linear(in_features=768, out_features=768, bias=False)
+                )
+                (layer_norm): T5LayerNorm()
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+              (1): T5LayerFF(
+                (DenseReluDense): T5DenseGatedActDense(
+                  (wi_0): Linear(in_features=768, out_features=2048, bias=False)
+                  (wi_1): Linear(in_features=768, out_features=2048, bias=False)
+                  (wo): Linear(in_features=2048, out_features=768, bias=False)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                  (act): NewGELUActivation()
+                )
+                (layer_norm): T5LayerNorm()
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+        (final_layer_norm): T5LayerNorm()
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (dropout): Dropout(p=0.0, inplace=False)
+    (classifier): Linear(in_features=768, out_features=2, bias=True)
+  )
+)</code></pre>
+</div>
+</div>
+<p>We can see that the model is a <code>T5ForTokenClassification</code> model, we <code>out_features</code> is 2, which is the number of classes in the model.</p>
+<p>Another thing to note is that the <code>tokenizer</code> is loaded on the model’s init! This is not recommended at all. &gt; It also has a typo: <code>tokenzier</code> instead of <code>tokenizer</code></p>
+<div id="cell-16" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>vectara_model.tokenzier</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>T5TokenizerFast(name_or_path='google/flan-t5-base', vocab_size=32100, model_max_length=512, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'eos_token': '&lt;/s&gt;', 'unk_token': '&lt;unk&gt;', 'pad_token': '&lt;pad&gt;', 'additional_special_tokens': ['&lt;extra_id_0&gt;', '&lt;extra_id_1&gt;', '&lt;extra_id_2&gt;', '&lt;extra_id_3&gt;', '&lt;extra_id_4&gt;', '&lt;extra_id_5&gt;', '&lt;extra_id_6&gt;', '&lt;extra_id_7&gt;', '&lt;extra_id_8&gt;', '&lt;extra_id_9&gt;', '&lt;extra_id_10&gt;', '&lt;extra_id_11&gt;', '&lt;extra_id_12&gt;', '&lt;extra_id_13&gt;', '&lt;extra_id_14&gt;', '&lt;extra_id_15&gt;', '&lt;extra_id_16&gt;', '&lt;extra_id_17&gt;', '&lt;extra_id_18&gt;', '&lt;extra_id_19&gt;', '&lt;extra_id_20&gt;', '&lt;extra_id_21&gt;', '&lt;extra_id_22&gt;', '&lt;extra_id_23&gt;', '&lt;extra_id_24&gt;', '&lt;extra_id_25&gt;', '&lt;extra_id_26&gt;', '&lt;extra_id_27&gt;', '&lt;extra_id_28&gt;', '&lt;extra_id_29&gt;', '&lt;extra_id_30&gt;', '&lt;extra_id_31&gt;', '&lt;extra_id_32&gt;', '&lt;extra_id_33&gt;', '&lt;extra_id_34&gt;', '&lt;extra_id_35&gt;', '&lt;extra_id_36&gt;', '&lt;extra_id_37&gt;', '&lt;extra_id_38&gt;', '&lt;extra_id_39&gt;', '&lt;extra_id_40&gt;', '&lt;extra_id_41&gt;', '&lt;extra_id_42&gt;', '&lt;extra_id_43&gt;', '&lt;extra_id_44&gt;', '&lt;extra_id_45&gt;', '&lt;extra_id_46&gt;', '&lt;extra_id_47&gt;', '&lt;extra_id_48&gt;', '&lt;extra_id_49&gt;', '&lt;extra_id_50&gt;', '&lt;extra_id_51&gt;', '&lt;extra_id_52&gt;', '&lt;extra_id_53&gt;', '&lt;extra_id_54&gt;', '&lt;extra_id_55&gt;', '&lt;extra_id_56&gt;', '&lt;extra_id_57&gt;', '&lt;extra_id_58&gt;', '&lt;extra_id_59&gt;', '&lt;extra_id_60&gt;', '&lt;extra_id_61&gt;', '&lt;extra_id_62&gt;', '&lt;extra_id_63&gt;', '&lt;extra_id_64&gt;', '&lt;extra_id_65&gt;', '&lt;extra_id_66&gt;', '&lt;extra_id_67&gt;', '&lt;extra_id_68&gt;', '&lt;extra_id_69&gt;', '&lt;extra_id_70&gt;', '&lt;extra_id_71&gt;', '&lt;extra_id_72&gt;', '&lt;extra_id_73&gt;', '&lt;extra_id_74&gt;', '&lt;extra_id_75&gt;', '&lt;extra_id_76&gt;', '&lt;extra_id_77&gt;', '&lt;extra_id_78&gt;', '&lt;extra_id_79&gt;', '&lt;extra_id_80&gt;', '&lt;extra_id_81&gt;', '&lt;extra_id_82&gt;', '&lt;extra_id_83&gt;', '&lt;extra_id_84&gt;', '&lt;extra_id_85&gt;', '&lt;extra_id_86&gt;', '&lt;extra_id_87&gt;', '&lt;extra_id_88&gt;', '&lt;extra_id_89&gt;', '&lt;extra_id_90&gt;', '&lt;extra_id_91&gt;', '&lt;extra_id_92&gt;', '&lt;extra_id_93&gt;', '&lt;extra_id_94&gt;', '&lt;extra_id_95&gt;', '&lt;extra_id_96&gt;', '&lt;extra_id_97&gt;', '&lt;extra_id_98&gt;', '&lt;extra_id_99&gt;']}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+    0: AddedToken("&lt;pad&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    1: AddedToken("&lt;/s&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    2: AddedToken("&lt;unk&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32000: AddedToken("&lt;extra_id_99&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32001: AddedToken("&lt;extra_id_98&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32002: AddedToken("&lt;extra_id_97&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32003: AddedToken("&lt;extra_id_96&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32004: AddedToken("&lt;extra_id_95&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32005: AddedToken("&lt;extra_id_94&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32006: AddedToken("&lt;extra_id_93&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32007: AddedToken("&lt;extra_id_92&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32008: AddedToken("&lt;extra_id_91&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32009: AddedToken("&lt;extra_id_90&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32010: AddedToken("&lt;extra_id_89&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32011: AddedToken("&lt;extra_id_88&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32012: AddedToken("&lt;extra_id_87&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32013: AddedToken("&lt;extra_id_86&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32014: AddedToken("&lt;extra_id_85&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32015: AddedToken("&lt;extra_id_84&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32016: AddedToken("&lt;extra_id_83&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32017: AddedToken("&lt;extra_id_82&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32018: AddedToken("&lt;extra_id_81&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32019: AddedToken("&lt;extra_id_80&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32020: AddedToken("&lt;extra_id_79&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32021: AddedToken("&lt;extra_id_78&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32022: AddedToken("&lt;extra_id_77&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32023: AddedToken("&lt;extra_id_76&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32024: AddedToken("&lt;extra_id_75&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32025: AddedToken("&lt;extra_id_74&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32026: AddedToken("&lt;extra_id_73&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32027: AddedToken("&lt;extra_id_72&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32028: AddedToken("&lt;extra_id_71&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32029: AddedToken("&lt;extra_id_70&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32030: AddedToken("&lt;extra_id_69&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32031: AddedToken("&lt;extra_id_68&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32032: AddedToken("&lt;extra_id_67&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32033: AddedToken("&lt;extra_id_66&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32034: AddedToken("&lt;extra_id_65&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32035: AddedToken("&lt;extra_id_64&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32036: AddedToken("&lt;extra_id_63&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32037: AddedToken("&lt;extra_id_62&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32038: AddedToken("&lt;extra_id_61&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32039: AddedToken("&lt;extra_id_60&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32040: AddedToken("&lt;extra_id_59&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32041: AddedToken("&lt;extra_id_58&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32042: AddedToken("&lt;extra_id_57&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32043: AddedToken("&lt;extra_id_56&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32044: AddedToken("&lt;extra_id_55&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32045: AddedToken("&lt;extra_id_54&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32046: AddedToken("&lt;extra_id_53&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32047: AddedToken("&lt;extra_id_52&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32048: AddedToken("&lt;extra_id_51&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32049: AddedToken("&lt;extra_id_50&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32050: AddedToken("&lt;extra_id_49&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32051: AddedToken("&lt;extra_id_48&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32052: AddedToken("&lt;extra_id_47&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32053: AddedToken("&lt;extra_id_46&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32054: AddedToken("&lt;extra_id_45&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32055: AddedToken("&lt;extra_id_44&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32056: AddedToken("&lt;extra_id_43&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32057: AddedToken("&lt;extra_id_42&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32058: AddedToken("&lt;extra_id_41&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32059: AddedToken("&lt;extra_id_40&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32060: AddedToken("&lt;extra_id_39&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32061: AddedToken("&lt;extra_id_38&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32062: AddedToken("&lt;extra_id_37&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32063: AddedToken("&lt;extra_id_36&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32064: AddedToken("&lt;extra_id_35&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32065: AddedToken("&lt;extra_id_34&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32066: AddedToken("&lt;extra_id_33&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32067: AddedToken("&lt;extra_id_32&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32068: AddedToken("&lt;extra_id_31&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32069: AddedToken("&lt;extra_id_30&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32070: AddedToken("&lt;extra_id_29&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32071: AddedToken("&lt;extra_id_28&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32072: AddedToken("&lt;extra_id_27&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32073: AddedToken("&lt;extra_id_26&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32074: AddedToken("&lt;extra_id_25&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32075: AddedToken("&lt;extra_id_24&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32076: AddedToken("&lt;extra_id_23&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32077: AddedToken("&lt;extra_id_22&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32078: AddedToken("&lt;extra_id_21&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32079: AddedToken("&lt;extra_id_20&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32080: AddedToken("&lt;extra_id_19&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32081: AddedToken("&lt;extra_id_18&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32082: AddedToken("&lt;extra_id_17&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32083: AddedToken("&lt;extra_id_16&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32084: AddedToken("&lt;extra_id_15&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32085: AddedToken("&lt;extra_id_14&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32086: AddedToken("&lt;extra_id_13&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32087: AddedToken("&lt;extra_id_12&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32088: AddedToken("&lt;extra_id_11&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32089: AddedToken("&lt;extra_id_10&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32090: AddedToken("&lt;extra_id_9&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32091: AddedToken("&lt;extra_id_8&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32092: AddedToken("&lt;extra_id_7&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32093: AddedToken("&lt;extra_id_6&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32094: AddedToken("&lt;extra_id_5&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32095: AddedToken("&lt;extra_id_4&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32096: AddedToken("&lt;extra_id_3&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32097: AddedToken("&lt;extra_id_2&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32098: AddedToken("&lt;extra_id_1&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+    32099: AddedToken("&lt;extra_id_0&gt;", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)</code></pre>
+</div>
+</div>
+<p>It is also a standard <code>T5</code> tokenizer. One thing we can do, is save this tokenizer with the model as well.</p>
+<div id="cell-18" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vectara_model.tokenzier.save_pretrained(<span class="st">"weave_models/vectara"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>('weave_models/vectara/tokenizer_config.json',
+ 'weave_models/vectara/special_tokens_map.json',
+ 'weave_models/vectara/spiece.model',
+ 'weave_models/vectara/added_tokens.json',
+ 'weave_models/vectara/tokenizer.json')</code></pre>
+</div>
+</div>
+<p>If we check the Readme on the file, it is recommended to use the model using this custom <code>predict</code> function built-in with the model.</p>
+<div id="cell-20" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>vectara_model.predict??</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Signature: vectara_model.predict(text_pairs)
+Docstring: &lt;no docstring&gt;
+Source:   
+    def predict(self, text_pairs):
+        tokenizer = self.tokenzier
+        pair_dict = [{'text1': pair[0], 'text2': pair[1]} for pair in text_pairs]
+        inputs = tokenizer(
+            [self.prompt.format(**pair) for pair in pair_dict], return_tensors='pt', padding=True).to(self.t5.device)
+        self.t5.eval()
+        with torch.no_grad():
+            outputs = self.t5(**inputs)
+        logits = outputs.logits    
+        logits = logits[:, 0, :] # tok_cls
+        transformed_probs = torch.softmax(logits, dim=-1)
+        raw_scores = transformed_probs[:, 1] # the probability of class 1
+        return raw_scores
+File:      ~/.cache/huggingface/modules/transformers_modules/vectara/hallucination_evaluation_model/b3973afb9f9595a40bb8403b46c6dac9c26d16d5/modeling_hhem_v2.py
+Type:      method</code></pre>
+</div>
+</div>
+<p>As you can see, the <code>predict</code> function is custom text <code>pair</code> input classifier, that applies a prompt template and then uses the CLS token as the logit to use for classification.</p>
+<p>We are going to repack this as a transformers pipeline. But first, let’s actually extract the underlying <code>T5</code> model and save it instead, this will override the <code>HemmV2</code> model that is loaded on the <code>AutoModelForSequenceClassification</code> model.</p>
+<div id="cell-23" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>vectara_model.t5.save_pretrained(<span class="st">"weave_models/vectara"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we can load the model as a <code>T5ForTokenClassification</code> model. No more custom model!</p>
+<div id="cell-25" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> T5ForTokenClassification, AutoTokenizer</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>t5_model <span class="op">=</span> T5ForTokenClassification.from_pretrained(<span class="st">"weave_models/vectara"</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>tokenizer <span class="op">=</span> AutoTokenizer.from_pretrained(<span class="st">"weave_models/vectara"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="writing-a-custom-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="writing-a-custom-pipeline">Writing a custom pipeline</h2>
+<p>Let’s create a custom pipeline to deal with pairs of text. We have multiple ways of doing this, but let’s do it in a way that is compatible with the <code>T5ForTokenClassification</code> model and keep it simple, by using the <code>Pipeline</code> class and predicting directly on tuples of text.</p>
+<div id="cell-28" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> AutoTokenizer, Pipeline</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PairTextClassificationPipeline(Pipeline):</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, model, tokenizer<span class="op">=</span><span class="va">None</span>, <span class="op">**</span>kwargs):</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Initialize tokenizer first</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> tokenizer <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>            tokenizer <span class="op">=</span> AutoTokenizer.from_pretrained(model.config._name_or_path)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Make sure we store the tokenizer before calling super().__init__</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.tokenizer <span class="op">=</span> tokenizer</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(model<span class="op">=</span>model, tokenizer<span class="op">=</span>tokenizer, <span class="op">**</span>kwargs)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.prompt <span class="op">=</span> <span class="st">"&lt;pad&gt; Determine if the hypothesis is true given the premise?</span><span class="ch">\n\n</span><span class="st">Premise: </span><span class="sc">{text1}</span><span class="ch">\n\n</span><span class="st">Hypothesis: </span><span class="sc">{text2}</span><span class="st">"</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _sanitize_parameters(<span class="va">self</span>, <span class="op">**</span>kwargs):</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>        preprocess_kwargs <span class="op">=</span> {}</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> preprocess_kwargs, {}, {}</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> preprocess(<span class="va">self</span>, inputs):</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Expect inputs to be list of (Premise, Hypothesis) tuples</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>        pair_dict <span class="op">=</span> {<span class="st">'text1'</span>: inputs[<span class="dv">0</span>], <span class="st">'text2'</span>: inputs[<span class="dv">1</span>]}</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>        formatted_prompt <span class="op">=</span> <span class="va">self</span>.prompt.<span class="bu">format</span>(<span class="op">**</span>pair_dict)</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>        model_inputs <span class="op">=</span> <span class="va">self</span>.tokenizer(</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>            formatted_prompt,</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>            return_tensors<span class="op">=</span><span class="st">'pt'</span>, </span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>            padding<span class="op">=</span><span class="va">True</span></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> model_inputs</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _forward(<span class="va">self</span>, model_inputs):</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>        model_outputs <span class="op">=</span> <span class="va">self</span>.model(<span class="op">**</span>model_inputs)</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> model_outputs</span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> postprocess(<span class="va">self</span>, model_outputs):</span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>        logits <span class="op">=</span> model_outputs.logits</span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>        logits <span class="op">=</span> logits[:, <span class="dv">0</span>, :] <span class="co"># tok_cls</span></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>        transformed_probs <span class="op">=</span> torch.softmax(logits, dim<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>        raw_scores <span class="op">=</span> transformed_probs[:, <span class="dv">1</span>] <span class="co"># probability of class 1</span></span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> raw_scores.item()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can manually test the pipeline:</p>
+<div id="cell-30" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pipe <span class="op">=</span> PairTextClassificationPipeline(t5_model, tokenizer<span class="op">=</span>tokenizer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Device set to use mps:0</code></pre>
+</div>
+</div>
+<div id="cell-31" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pairs <span class="op">=</span> [ <span class="co"># Test data, List[Tuple[str, str]]</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"The capital of France is Berlin."</span>, <span class="st">"The capital of France is Paris."</span>),</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'I am in California'</span>, <span class="st">'I am in United States.'</span>),</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'I am in United States'</span>, <span class="st">'I am in California.'</span>),</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A person on a horse jumps over a broken down airplane."</span>, <span class="st">"A person is outdoors, on a horse."</span>),</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A boy is jumping on skateboard in the middle of a red bridge."</span>, <span class="st">"The boy skates down the sidewalk on a red bridge"</span>),</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A man with blond-hair, and a brown shirt drinking out of a public water fountain."</span>, <span class="st">"A blond man wearing a brown shirt is reading a book."</span>),</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Mark Wahlberg was a fan of Manny."</span>, <span class="st">"Manny was a fan of Mark Wahlberg."</span>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s compare the GT values</p>
+<div id="cell-33" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> pipe(pairs)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the ground truth scores</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>gt <span class="op">=</span> [<span class="fl">0.011061512865126133</span>, <span class="fl">0.6473632454872131</span>, <span class="fl">0.1290171593427658</span>, <span class="fl">0.8969419002532959</span>, <span class="fl">0.18462494015693665</span>, <span class="fl">0.005031010136008263</span>, <span class="fl">0.05432349815964699</span>]</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">all</span>(<span class="bu">abs</span>(s <span class="op">-</span> g) <span class="op">&lt;</span> <span class="fl">1e-5</span> <span class="cf">for</span> s, g <span class="kw">in</span> <span class="bu">zip</span>(scores, gt))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ok, but this pipeline is not yet saved within the model. Let’s save the <code>PairTextClassificationPipeline</code> to a file next to this notebook <code>custom_pipeline.py</code>. If you open <code>config.json</code> you will see that this entry get’s added:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>  <span class="er">"custom_pipelines":</span> <span class="fu">{</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"pair-classification"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"impl"</span><span class="fu">:</span> <span class="st">"custom_pipeline.PairTextClassificationPipeline"</span><span class="fu">,</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"pt"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"AutoModelForTokenClassification"</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"tf"</span><span class="fu">:</span> <span class="ot">[]</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="er">,</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-35" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> custom_pipeline <span class="im">import</span> PairTextClassificationPipeline</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers.pipelines <span class="im">import</span> PIPELINE_REGISTRY</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> AutoModelForTokenClassification</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># this adds the pipeline to the model =)</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>PIPELINE_REGISTRY.register_pipeline(</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pair-classification"</span>,</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    pipeline_class<span class="op">=</span>PairTextClassificationPipeline,</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    pt_model<span class="op">=</span>AutoModelForTokenClassification,</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And now if you save, the custom_pipeline.py is also being saved!</p>
+<div id="cell-37" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>pipe.save_pretrained(<span class="st">"weave_models/hallu_scorer"</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>pipe.push_to_hub(<span class="st">"tcapelle/hallu_scorer"</span>) <span class="co"># optional</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>No files have been modified since last commit. Skipping to prevent empty commit.</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>CommitInfo(commit_url='https://huggingface.co/tcapelle/hallu_scorer/commit/7da223761c65862d2c5222c19b97b66a1a50824a', commit_message='Upload PairTextClassificationPipeline', commit_description='', oid='7da223761c65862d2c5222c19b97b66a1a50824a', pr_url=None, repo_url=RepoUrl('https://huggingface.co/tcapelle/hallu_scorer', endpoint='https://huggingface.co', repo_type='model', repo_id='tcapelle/hallu_scorer'), pr_revision=None, pr_num=None)</code></pre>
+</div>
+</div>
+</section>
+<section id="loading-back-and-using-the-model" class="level1">
+<h1>Loading back and using the model</h1>
+<div id="cell-39" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> pipeline</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>pipe <span class="op">=</span> pipeline(<span class="st">"pair-classification"</span>, model<span class="op">=</span><span class="st">"tcapelle/hallu_scorer"</span>, trust_remote_code<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>pipe((<span class="st">"The capital of France is Berlin."</span>, <span class="st">"The capital of France is Paris."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Device set to use mps:0</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>0.01106148399412632</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/tcapelle\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.dev/tcapelle/capesite/blob/main/posts/2025-10-02-custom-pipeline.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
