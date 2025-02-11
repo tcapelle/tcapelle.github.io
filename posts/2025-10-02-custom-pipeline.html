@@ -179,11 +179,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>A practical example of repacking <a href="https://huggingface.co/vectara/hallucination_evaluation_model">Vectara’s hallucination model</a></p>
-<p>Quick intro, a HF model is a folder containing all the necessary code and checkpoint to run the model. - The weights of the model - The tokenizer - All the configuration files - The python files needed to perform inference correctly (If you are doing something non standard, etc…)</p>
+<p>Quick intro, a HF model is a folder containing all the necessary code and checkpoint to run the model. * The weights of the model * The tokenizer * All the configuration files * The python files needed to perform inference correctly (If you are doing something non standard, etc…)</p>
 <div id="cell-2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> AutoModelForSequenceClassification</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>vectara_model <span class="op">=</span> AutoModelForSequenceClassification.from_pretrained(<span class="st">"vectara/hallucination_evaluation_model"</span>, trust_remote_code<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>vectara_model <span class="op">=</span> AutoModelForSequenceClassification.from_pretrained(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"vectara/hallucination_evaluation_model"</span>, </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    trust_remote_code<span class="op">=</span><span class="va">True</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>You are using a model of type HHEMv2Config to instantiate a model of type HHEMv2. This is not supported for all configurations of models and can yield errors.</code></pre>
 </div>
@@ -222,12 +225,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>If we save the model again, the config will be updated.</p>
 <div id="cell-8" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>vectara_model.save_pretrained(<span class="st">"weave_models/vectara"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>vectara_model.save_pretrained(<span class="st">"models/vectara"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>no more warnings</p>
 <div id="cell-10" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>vectara_model <span class="op">=</span> AutoModelForSequenceClassification.from_pretrained(<span class="st">"weave_models/vectara"</span>, trust_remote_code<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(vectara_model.config.model_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>vectara_model <span class="op">=</span> AutoModelForSequenceClassification.from_pretrained(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"models/vectara"</span>, trust_remote_code<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(vectara_model.config.model_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>HHEMv2</code></pre>
 </div>
@@ -238,9 +242,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="cell-13" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> AutoModelForSequenceClassification</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>vectara_model <span class="op">=</span> AutoModelForSequenceClassification.from_pretrained(<span class="st">"weave_models/vectara"</span>, trust_remote_code<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>vectara_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>vectara_model <span class="op">=</span> AutoModelForSequenceClassification.from_pretrained(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"models/vectara"</span>, trust_remote_code<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(vectara_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>HHEMv2ForSequenceClassification(
   (t5): T5ForTokenClassification(
@@ -312,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We can see that the model is a <code>T5ForTokenClassification</code> model, we <code>out_features</code> is 2, which is the number of classes in the model.</p>
-<p>Another thing to note is that the <code>tokenizer</code> is loaded on the model’s init! This is not recommended at all. &gt; It also has a typo: <code>tokenzier</code> instead of <code>tokenizer</code></p>
+<p>Another thing to note is that the <code>tokenizer</code> is loaded on the model’s init! This is not recommended at all. &gt; Note: The model has a typo: <code>tokenzier</code> instead of <code>tokenizer</code></p>
 <div id="cell-16" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>vectara_model.tokenzier</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -426,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>It is also a standard <code>T5</code> tokenizer. One thing we can do, is save this tokenizer with the model as well.</p>
 <div id="cell-18" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vectara_model.tokenzier.save_pretrained(<span class="st">"weave_models/vectara"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vectara_model.tokenzier.save_pretrained(<span class="st">"models/vectara"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>('weave_models/vectara/tokenizer_config.json',
  'weave_models/vectara/special_tokens_map.json',
@@ -459,22 +464,22 @@ File:      ~/.cache/huggingface/modules/transformers_modules/vectara/hallucinati
 Type:      method</code></pre>
 </div>
 </div>
-<p>As you can see, the <code>predict</code> function is custom text <code>pair</code> input classifier, that applies a prompt template and then uses the CLS token as the logit to use for classification.</p>
+<p>As you can see, the <code>predict</code> function is a custom text pair classifier that: 1. Takes two text inputs 2. Applies a prompt template to format them 3. Uses the CLS token’s logits for final classification</p>
 <p>We are going to repack this as a transformers pipeline. But first, let’s actually extract the underlying <code>T5</code> model and save it instead, this will override the <code>HemmV2</code> model that is loaded on the <code>AutoModelForSequenceClassification</code> model.</p>
 <div id="cell-23" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>vectara_model.t5.save_pretrained(<span class="st">"weave_models/vectara"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>vectara_model.t5.save_pretrained(<span class="st">"models/vectara"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can load the model as a <code>T5ForTokenClassification</code> model. No more custom model!</p>
 <div id="cell-25" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> T5ForTokenClassification, AutoTokenizer</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>t5_model <span class="op">=</span> T5ForTokenClassification.from_pretrained(<span class="st">"weave_models/vectara"</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>tokenizer <span class="op">=</span> AutoTokenizer.from_pretrained(<span class="st">"weave_models/vectara"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>t5_model <span class="op">=</span> T5ForTokenClassification.from_pretrained(<span class="st">"models/vectara"</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>tokenizer <span class="op">=</span> AutoTokenizer.from_pretrained(<span class="st">"models/vectara"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="writing-a-custom-pipeline" class="level2">
 <h2 class="anchored" data-anchor-id="writing-a-custom-pipeline">Writing a custom pipeline</h2>
-<p>Let’s create a custom pipeline to deal with pairs of text. We have multiple ways of doing this, but let’s do it in a way that is compatible with the <code>T5ForTokenClassification</code> model and keep it simple, by using the <code>Pipeline</code> class and predicting directly on tuples of text.</p>
+<p>We’ll create a pipeline that: 1. Handles text pair classification 2. Uses the T5ForTokenClassification model 3. Maintains compatibility with the original model’s behavior</p>
 <div id="cell-28" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> AutoTokenizer, Pipeline</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
@@ -487,33 +492,37 @@ Type:      method</code></pre>
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Make sure we store the tokenizer before calling super().__init__</span></span>
 <span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.tokenizer <span class="op">=</span> tokenizer</span>
 <span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(model<span class="op">=</span>model, tokenizer<span class="op">=</span>tokenizer, <span class="op">**</span>kwargs)</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.prompt <span class="op">=</span> <span class="st">"&lt;pad&gt; Determine if the hypothesis is true given the premise?</span><span class="ch">\n\n</span><span class="st">Premise: </span><span class="sc">{text1}</span><span class="ch">\n\n</span><span class="st">Hypothesis: </span><span class="sc">{text2}</span><span class="st">"</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _sanitize_parameters(<span class="va">self</span>, <span class="op">**</span>kwargs):</span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>        preprocess_kwargs <span class="op">=</span> {}</span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> preprocess_kwargs, {}, {}</span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> preprocess(<span class="va">self</span>, inputs):</span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Expect inputs to be list of (Premise, Hypothesis) tuples</span></span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>        pair_dict <span class="op">=</span> {<span class="st">'text1'</span>: inputs[<span class="dv">0</span>], <span class="st">'text2'</span>: inputs[<span class="dv">1</span>]}</span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>        formatted_prompt <span class="op">=</span> <span class="va">self</span>.prompt.<span class="bu">format</span>(<span class="op">**</span>pair_dict)</span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>        model_inputs <span class="op">=</span> <span class="va">self</span>.tokenizer(</span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>            formatted_prompt,</span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>            return_tensors<span class="op">=</span><span class="st">'pt'</span>, </span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>            padding<span class="op">=</span><span class="va">True</span></span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> model_inputs</span>
-<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _forward(<span class="va">self</span>, model_inputs):</span>
-<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>        model_outputs <span class="op">=</span> <span class="va">self</span>.model(<span class="op">**</span>model_inputs)</span>
-<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> model_outputs</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.prompt <span class="op">=</span> <span class="st">"""&lt;pad&gt; Determine if the hypothesis is true given the premise?</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="st">        </span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="st">        Premise: </span><span class="sc">{text1}</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="st">        </span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="st">        Hypothesis: </span><span class="sc">{text2}</span><span class="st">"""</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _sanitize_parameters(<span class="va">self</span>, <span class="op">**</span>kwargs):</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>        preprocess_kwargs <span class="op">=</span> {}</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> preprocess_kwargs, {}, {}</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> preprocess(<span class="va">self</span>, inputs):</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Expect inputs to be list of (Premise, Hypothesis) tuples</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>        pair_dict <span class="op">=</span> {<span class="st">'text1'</span>: inputs[<span class="dv">0</span>], <span class="st">'text2'</span>: inputs[<span class="dv">1</span>]}</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>        formatted_prompt <span class="op">=</span> <span class="va">self</span>.prompt.<span class="bu">format</span>(<span class="op">**</span>pair_dict)</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>        model_inputs <span class="op">=</span> <span class="va">self</span>.tokenizer(</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>            formatted_prompt,</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>            return_tensors<span class="op">=</span><span class="st">'pt'</span>, </span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>            padding<span class="op">=</span><span class="va">True</span></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> model_inputs</span>
 <span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> postprocess(<span class="va">self</span>, model_outputs):</span>
-<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>        logits <span class="op">=</span> model_outputs.logits</span>
-<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>        logits <span class="op">=</span> logits[:, <span class="dv">0</span>, :] <span class="co"># tok_cls</span></span>
-<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>        transformed_probs <span class="op">=</span> torch.softmax(logits, dim<span class="op">=-</span><span class="dv">1</span>)</span>
-<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>        raw_scores <span class="op">=</span> transformed_probs[:, <span class="dv">1</span>] <span class="co"># probability of class 1</span></span>
-<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> raw_scores.item()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _forward(<span class="va">self</span>, model_inputs):</span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>        model_outputs <span class="op">=</span> <span class="va">self</span>.model(<span class="op">**</span>model_inputs)</span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> model_outputs</span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> postprocess(<span class="va">self</span>, model_outputs):</span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>        logits <span class="op">=</span> model_outputs.logits</span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>        logits <span class="op">=</span> logits[:, <span class="dv">0</span>, :] <span class="co"># tok_cls</span></span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a>        transformed_probs <span class="op">=</span> torch.softmax(logits, dim<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>        raw_scores <span class="op">=</span> transformed_probs[:, <span class="dv">1</span>] <span class="co"># probability of class 1</span></span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> raw_scores.item()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can manually test the pipeline:</p>
 <div id="cell-30" class="cell" data-execution_count="13">
@@ -527,20 +536,25 @@ Type:      method</code></pre>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"The capital of France is Berlin."</span>, <span class="st">"The capital of France is Paris."</span>),</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'I am in California'</span>, <span class="st">'I am in United States.'</span>),</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'I am in United States'</span>, <span class="st">'I am in California.'</span>),</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A person on a horse jumps over a broken down airplane."</span>, <span class="st">"A person is outdoors, on a horse."</span>),</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A boy is jumping on skateboard in the middle of a red bridge."</span>, <span class="st">"The boy skates down the sidewalk on a red bridge"</span>),</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A man with blond-hair, and a brown shirt drinking out of a public water fountain."</span>, <span class="st">"A blond man wearing a brown shirt is reading a book."</span>),</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Mark Wahlberg was a fan of Manny."</span>, <span class="st">"Manny was a fan of Mark Wahlberg."</span>)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A person on a horse jumps over a broken down airplane."</span>, </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">"A person is outdoors, on a horse."</span>),</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A boy is jumping on skateboard in the middle of a red bridge."</span>, </span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>     <span class="st">"The boy skates down the sidewalk on a red bridge"</span>),</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A man with blond-hair, and a brown shirt drinking out of a public water fountain."</span>, </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>     <span class="st">"A blond man wearing a brown shirt is reading a book."</span>),</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Mark Wahlberg was a fan of Manny."</span>, <span class="st">"Manny was a fan of Mark Wahlberg."</span>)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s compare the GT values</p>
 <div id="cell-33" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> pipe(pairs)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the ground truth scores</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>gt <span class="op">=</span> [<span class="fl">0.011061512865126133</span>, <span class="fl">0.6473632454872131</span>, <span class="fl">0.1290171593427658</span>, <span class="fl">0.8969419002532959</span>, <span class="fl">0.18462494015693665</span>, <span class="fl">0.005031010136008263</span>, <span class="fl">0.05432349815964699</span>]</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">all</span>(<span class="bu">abs</span>(s <span class="op">-</span> g) <span class="op">&lt;</span> <span class="fl">1e-5</span> <span class="cf">for</span> s, g <span class="kw">in</span> <span class="bu">zip</span>(scores, gt))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>gt <span class="op">=</span> [<span class="fl">0.011061512865126133</span>, <span class="fl">0.6473632454872131</span>, <span class="fl">0.1290171593427658</span>, </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>      <span class="fl">0.8969419002532959</span>, <span class="fl">0.18462494015693665</span>, <span class="fl">0.005031010136008263</span>, </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>      <span class="fl">0.05432349815964699</span>]</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">all</span>(<span class="bu">abs</span>(s <span class="op">-</span> g) <span class="op">&lt;</span> <span class="fl">1e-5</span> <span class="cf">for</span> s, g <span class="kw">in</span> <span class="bu">zip</span>(scores, gt))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Ok, but this pipeline is not yet saved within the model. Let’s save the <code>PairTextClassificationPipeline</code> to a file next to this notebook <code>custom_pipeline.py</code>. If you open <code>config.json</code> you will see that this entry get’s added:</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>  <span class="er">"custom_pipelines":</span> <span class="fu">{</span></span>
@@ -567,7 +581,7 @@ Type:      method</code></pre>
 </div>
 <p>And now if you save, the custom_pipeline.py is also being saved!</p>
 <div id="cell-37" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>pipe.save_pretrained(<span class="st">"weave_models/hallu_scorer"</span>)</span>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>pipe.save_pretrained(<span class="st">"models/hallu_scorer"</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>pipe.push_to_hub(<span class="st">"tcapelle/hallu_scorer"</span>) <span class="co"># optional</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>No files have been modified since last commit. Skipping to prevent empty commit.</code></pre>
@@ -582,9 +596,16 @@ Type:      method</code></pre>
 <div id="cell-39" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> pipeline</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>pipe <span class="op">=</span> pipeline(<span class="st">"pair-classification"</span>, model<span class="op">=</span><span class="st">"tcapelle/hallu_scorer"</span>, trust_remote_code<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>pipe((<span class="st">"The capital of France is Berlin."</span>, <span class="st">"The capital of France is Paris."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>pipe <span class="op">=</span> pipeline(</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pair-classification"</span>, </span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"tcapelle/hallu_scorer"</span>, </span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    trust_remote_code<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>score <span class="op">=</span> pipe(</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"The capital of France is Berlin."</span>, </span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>     <span class="st">"The capital of France is Paris."</span>)</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>     )</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Device set to use mps:0</code></pre>
 </div>
