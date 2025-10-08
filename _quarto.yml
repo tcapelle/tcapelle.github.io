@@ -3,12 +3,12 @@ project:
 
 website:
   title: "capepage"
+  favicon: favicon.ico
   navbar:
     title: false
     background: dark
     pinned: true
     collapse: false
-    favicon: favicon.ico
     left:
       - about.qmd
       - index.qmd 
