@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,8 +24,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -36,7 +37,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -60,21 +61,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
+<link href="../favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6c4e7baf916d514ef38450583c4345af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f8690789a940fa323b05f425139a1407.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
@@ -110,12 +114,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+  </div>
           <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../about.html"> 
@@ -234,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This tutorial uses fastai to process sequences of images. - First we will do video classification on the <a href="https://www.crcv.ucf.edu/data/UCF101.php">UCF101 dataset</a>. You will learn how to convert the video to individual frames. We will also build a data processing piepline using fastai’s mid level API. - Secondly we will build some simple models and assess our accuracy. - Finally we will train a SotA transformer based architecture.</p>
 <p>The code and training of different architectures on the UCF101 dataset can be found here: - https://github.com/tcapelle/action_recognition/</p>
 <div id="cell-4" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastai.vision.<span class="bu">all</span> <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastai.vision.<span class="bu">all</span> <span class="im">import</span> <span class="op">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="ucf101-action-recognition" class="level2">
 <h2 class="anchored" data-anchor-id="ucf101-action-recognition">UCF101 Action Recognition</h2>
@@ -247,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We have to download the UCF101 dataset from their website. It is a big dataset (6.5GB), if your connection is slow you may want to do this at night or in a terminal (to avoid blocking the notebook). fastai’s <code>untar_data</code> is not capable of downloading this dataset, so we will use <code>wget</code> and then unrar the files using <code>rarfile</code>.</p>
 <p><code>fastai</code>’s datasets are located inside <code>~/.fastai/archive</code>, we will download UFC101 there.</p>
 <div id="cell-8" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>wget <span class="op">-</span>P <span class="op">~/</span>.fastai<span class="op">/</span>archive<span class="op">/</span> <span class="op">--</span>no<span class="op">-</span>check<span class="op">-</span>certificate  https:<span class="op">//</span>www.crcv.ucf.edu<span class="op">/</span>data<span class="op">/</span>UCF101<span class="op">/</span>UCF101.rar </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>wget <span class="op">-</span>P <span class="op">~/</span>.fastai<span class="op">/</span>archive<span class="op">/</span> <span class="op">--</span>no<span class="op">-</span>check<span class="op">-</span>certificate  https:<span class="op">//</span>www.crcv.ucf.edu<span class="op">/</span>data<span class="op">/</span>UCF101<span class="op">/</span>UCF101.rar </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>--2021-03-12 16:06:30--  https://www.crcv.ucf.edu/data/UCF101/UCF101.rar
 Resolving www.crcv.ucf.edu (www.crcv.ucf.edu)... 132.170.214.127
@@ -266,7 +274,7 @@ UCF101.rar.2          0%[                    ]   3,76M   832KB/s    eta 2h 48m ^
 </blockquote>
 <p>Let’s make a function to<code>unrar</code> the downloaded dataset. This function is very similar to <code>untar_data</code>, but handles <code>.rar</code> files.</p>
 <div id="cell-11" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rarfile <span class="im">import</span> RarFile</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rarfile <span class="im">import</span> RarFile</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> unrar(fname, dest):</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"Extract `fname` to `dest` using `rarfile`"</span></span>
@@ -280,12 +288,12 @@ UCF101.rar.2          0%[                    ]   3,76M   832KB/s    eta 2h 48m ^
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: </span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="ss">f'Unrecognized archive: </span><span class="sc">{</span>fname<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        rename_extracted(dest)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dest</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To be consistent, we will extract UCF dataset in <code>~/.fasta/data</code>. This is where fastai stores decompressed datasets.</p>
 <div id="cell-13" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ucf_fname <span class="op">=</span> Path.home()<span class="op">/</span><span class="st">'.fastai/archive/UCF101.rar'</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>dest <span class="op">=</span> Path.home()<span class="op">/</span><span class="st">'.fastai/data/UCF101'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ucf_fname <span class="op">=</span> Path.home()<span class="op">/</span><span class="st">'.fastai/archive/UCF101.rar'</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>dest <span class="op">=</span> Path.home()<span class="op">/</span><span class="st">'.fastai/data/UCF101'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -301,14 +309,14 @@ Warning
 </div>
 </div>
 <div id="cell-15" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> unrar(ucf_fname, dest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> unrar(ucf_fname, dest)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>extracting to: /home/tcapelle/.fastai/data/UCF101</code></pre>
 </div>
 </div>
 <p>The file structure of the dataset after extraction is one folder per action:</p>
 <div id="cell-17" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>path.ls()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>path.ls()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>(#101) [Path('/home/tcapelle/.fastai/data/UCF101/Hammering'),Path('/home/tcapelle/.fastai/data/UCF101/HandstandPushups'),Path('/home/tcapelle/.fastai/data/UCF101/HorseRace'),Path('/home/tcapelle/.fastai/data/UCF101/FrontCrawl'),Path('/home/tcapelle/.fastai/data/UCF101/LongJump'),Path('/home/tcapelle/.fastai/data/UCF101/GolfSwing'),Path('/home/tcapelle/.fastai/data/UCF101/ApplyEyeMakeup'),Path('/home/tcapelle/.fastai/data/UCF101/UnevenBars'),Path('/home/tcapelle/.fastai/data/UCF101/HeadMassage'),Path('/home/tcapelle/.fastai/data/UCF101/Kayaking')...]</code></pre>
 </div>
@@ -335,26 +343,26 @@ Warning
 </code></pre>
 <p>we can grab all videos at one using <code>get_files</code> and passing the <code>'.avi</code> extension</p>
 <div id="cell-21" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>video_paths <span class="op">=</span> get_files(path, extensions<span class="op">=</span><span class="st">'.avi'</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>video_paths[<span class="dv">0</span>:<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>video_paths <span class="op">=</span> get_files(path, extensions<span class="op">=</span><span class="st">'.avi'</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>video_paths[<span class="dv">0</span>:<span class="dv">4</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>(#4) [Path('/home/tcapelle/.fastai/data/UCF101/Hammering/v_Hammering_g22_c05.avi'),Path('/home/tcapelle/.fastai/data/UCF101/Hammering/v_Hammering_g21_c05.avi'),Path('/home/tcapelle/.fastai/data/UCF101/Hammering/v_Hammering_g03_c03.avi'),Path('/home/tcapelle/.fastai/data/UCF101/Hammering/v_Hammering_g18_c02.avi')]</code></pre>
 </div>
 </div>
 <p>We can convert the videos to frames using <code>av</code>:</p>
 <div id="cell-23" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> av</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> av</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-24" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_frames(video_path):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_frames(video_path):</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"convert video to PIL images "</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    video <span class="op">=</span> av.<span class="bu">open</span>(<span class="bu">str</span>(video_path))</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> frame <span class="kw">in</span> video.decode(<span class="dv">0</span>):</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">yield</span> frame.to_image()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">yield</span> frame.to_image()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-25" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>frames <span class="op">=</span> <span class="bu">list</span>(extract_frames(video_paths[<span class="dv">0</span>]))</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>frames[<span class="dv">0</span>:<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>frames <span class="op">=</span> <span class="bu">list</span>(extract_frames(video_paths[<span class="dv">0</span>]))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>frames[<span class="dv">0</span>:<span class="dv">4</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>[&lt;PIL.Image.Image image mode=RGB size=320x240 at 0x7F3E8B1EBD90&gt;,
  &lt;PIL.Image.Image image mode=RGB size=320x240 at 0x7F3E8B1EBE50&gt;,
@@ -364,7 +372,7 @@ Warning
 </div>
 <p>We have<code>PIL.Image</code> objects, so we can directly show them using fastai’s <code>show_images</code> method</p>
 <div id="cell-27" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>show_images(frames[<span class="dv">0</span>:<span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>show_images(frames[<span class="dv">0</span>:<span class="dv">5</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -375,8 +383,8 @@ Warning
 </div>
 <p>let’s grab one video path</p>
 <div id="cell-29" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>video_path <span class="op">=</span> video_paths[<span class="dv">0</span>]</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>video_path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>video_path <span class="op">=</span> video_paths[<span class="dv">0</span>]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>video_path</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>Path('/home/tcapelle/.fastai/data/UCF101/Hammering/v_Hammering_g22_c05.avi')</code></pre>
 </div>
@@ -384,37 +392,37 @@ Warning
 <p>We want to export all videos to frames, les’t built a function that is capable of exporting one video to frames, and stores the resulting frames on a folder of the same name.</p>
 <p>Let’s grab de folder name:</p>
 <div id="cell-31" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>video_path.relative_to(video_path.parent.parent).with_suffix(<span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>video_path.relative_to(video_path.parent.parent).with_suffix(<span class="st">''</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>Path('Hammering/v_Hammering_g22_c05')</code></pre>
 </div>
 </div>
 <p>we will also create a new directory for our <code>frames</code> version of UCF. You will need at least 7GB to do this, afterwards you can erase the original UCF101 folder containing the videos.</p>
 <div id="cell-33" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>path_frames <span class="op">=</span> path.parent<span class="op">/</span><span class="st">'UCF101-frames'</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path_frames.exists(): path_frames.mkdir()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>path_frames <span class="op">=</span> path.parent<span class="op">/</span><span class="st">'UCF101-frames'</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> path_frames.exists(): path_frames.mkdir()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>we will make a function that takes a video path, and extracts the frames to our new <code>UCF-frames</code> dataset with the same folder structure.</p>
 <div id="cell-35" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> avi2frames(video_path, path_frames<span class="op">=</span>path_frames, force<span class="op">=</span><span class="va">False</span>):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> avi2frames(video_path, path_frames<span class="op">=</span>path_frames, force<span class="op">=</span><span class="va">False</span>):</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"Extract frames from avi file to jpgs"</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    dest_path <span class="op">=</span> path_frames<span class="op">/</span>video_path.relative_to(video_path.parent.parent).with_suffix(<span class="st">''</span>)</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> dest_path.exists() <span class="kw">or</span> force:</span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        dest_path.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i, frame <span class="kw">in</span> <span class="bu">enumerate</span>(extract_frames(video_path)):</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>            frame.save(dest_path<span class="op">/</span><span class="ss">f'</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">.jpg'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>            frame.save(dest_path<span class="op">/</span><span class="ss">f'</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">.jpg'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-36" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>avi2frames(video_path)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>(path_frames<span class="op">/</span>video_path.relative_to(video_path.parent.parent).with_suffix(<span class="st">''</span>)).ls()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>avi2frames(video_path)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>(path_frames<span class="op">/</span>video_path.relative_to(video_path.parent.parent).with_suffix(<span class="st">''</span>)).ls()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>(#161) [Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g22_c05/63.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g22_c05/90.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g22_c05/19.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g22_c05/111.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g22_c05/132.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g22_c05/59.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g22_c05/46.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g22_c05/130.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g22_c05/142.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g22_c05/39.jpg')...]</code></pre>
 </div>
 </div>
 <p>Now we can batch process the whole dataset using fastcore’s <code>parallel</code>. This could be slow on a low CPU count machine. On a 12 core machine it takes 4 minutes.</p>
 <div id="cell-38" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#slow</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#parallel(avi2frames, video_paths)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#slow</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#parallel(avi2frames, video_paths)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>after this you get a folder hierarchy that looks like this</p>
 <pre><code>UCF101-frames
@@ -466,46 +474,46 @@ Warning
 <h3 class="anchored" data-anchor-id="data-pipeline">Data pipeline</h3>
 <p>we have converted all the videos to images, we are ready to start building our fastai data pipeline</p>
 <div id="cell-42" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data_path <span class="op">=</span> Path.home()<span class="op">/</span><span class="st">'.fastai/data/UCF101-frames'</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>data_path.ls()[<span class="dv">0</span>:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data_path <span class="op">=</span> Path.home()<span class="op">/</span><span class="st">'.fastai/data/UCF101-frames'</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>data_path.ls()[<span class="dv">0</span>:<span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>(#3) [Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering'),Path('/home/tcapelle/.fastai/data/UCF101-frames/HandstandPushups'),Path('/home/tcapelle/.fastai/data/UCF101-frames/HorseRace')]</code></pre>
 </div>
 </div>
 <p>we have one folder per action category, and inside one folder per instance of the action.</p>
 <div id="cell-44" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_instances(path):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_instances(path):</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">" gets all instances folders paths"</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    sequence_paths <span class="op">=</span> []</span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> actions <span class="kw">in</span> path.ls():</span>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>        sequence_paths <span class="op">+=</span> actions.ls()</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sequence_paths</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sequence_paths</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>with this function we get individual instances of each action, <strong>these are the image sequences that we need to clasiffy.</strong>. We will build a pipeline that takes as input <strong>instance path</strong>’s.</p>
 <div id="cell-46" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>instances_path <span class="op">=</span> get_instances(data_path)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>instances_path[<span class="dv">0</span>:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>instances_path <span class="op">=</span> get_instances(data_path)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>instances_path[<span class="dv">0</span>:<span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>(#3) [Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g14_c02'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g07_c03'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g13_c07')]</code></pre>
 </div>
 </div>
 <p>we have to sort the video frames numerically. We will patch pathlib’s <code>Path</code> class to return a list of files conttaines on a folde sorted numerically. It could be a good idea to modify fastcore’s <code>ls</code> method with an optiional argument <code>sort_func</code>.</p>
 <div id="cell-48" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="at">@patch</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="at">@patch</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ls_sorted(<span class="va">self</span>:Path):</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"ls but sorts files by name numerically"</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">self</span>.ls().<span class="bu">sorted</span>(key<span class="op">=</span><span class="kw">lambda</span> f: <span class="bu">int</span>(f.with_suffix(<span class="st">''</span>).name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">self</span>.ls().<span class="bu">sorted</span>(key<span class="op">=</span><span class="kw">lambda</span> f: <span class="bu">int</span>(f.with_suffix(<span class="st">''</span>).name))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-49" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>instances_path[<span class="dv">0</span>].ls_sorted()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>instances_path[<span class="dv">0</span>].ls_sorted()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>(#187) [Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g14_c02/0.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g14_c02/1.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g14_c02/2.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g14_c02/3.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g14_c02/4.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g14_c02/5.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g14_c02/6.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g14_c02/7.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g14_c02/8.jpg'),Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g14_c02/9.jpg')...]</code></pre>
 </div>
 </div>
 <p>let’s grab the first 5 frames</p>
 <div id="cell-51" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>frames <span class="op">=</span> instances_path[<span class="dv">0</span>].ls_sorted()[<span class="dv">0</span>:<span class="dv">5</span>]</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>show_images([Image.<span class="bu">open</span>(img) <span class="cf">for</span> img <span class="kw">in</span> frames])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>frames <span class="op">=</span> instances_path[<span class="dv">0</span>].ls_sorted()[<span class="dv">0</span>:<span class="dv">5</span>]</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>show_images([Image.<span class="bu">open</span>(img) <span class="cf">for</span> img <span class="kw">in</span> frames])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -516,7 +524,7 @@ Warning
 </div>
 <p>We will build a tuple that contains individual frames and that can show themself. We will use the same idea that on the <code>siamese_tutorial</code>. As a video can have many frames, and we don’t want to display them all, the <code>show</code> method will only display the 1st, middle and last images.</p>
 <div id="cell-53" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ImageTuple(fastuple):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ImageTuple(fastuple):</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"A tuple of PILImages"</span></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> show(<span class="va">self</span>, ctx<span class="op">=</span><span class="va">None</span>, <span class="op">**</span>kwargs): </span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>        n <span class="op">=</span> <span class="bu">len</span>(<span class="va">self</span>)</span>
@@ -525,10 +533,10 @@ Warning
 <span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>            t0, t1,t2 <span class="op">=</span> tensor(img0), tensor(img1),tensor(img2)</span>
 <span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>            t0, t1,t2 <span class="op">=</span> t0.permute(<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">1</span>), t1.permute(<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">1</span>),t2.permute(<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span>
 <span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: t0, t1,t2 <span class="op">=</span> img0, img1,img2</span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> show_image(torch.cat([t0,t1,t2], dim<span class="op">=</span><span class="dv">2</span>), ctx<span class="op">=</span>ctx, <span class="op">**</span>kwargs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> show_image(torch.cat([t0,t1,t2], dim<span class="op">=</span><span class="dv">2</span>), ctx<span class="op">=</span>ctx, <span class="op">**</span>kwargs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-54" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>ImageTuple(PILImage.create(fn) <span class="cf">for</span> fn <span class="kw">in</span> frames).show()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>ImageTuple(PILImage.create(fn) <span class="cf">for</span> fn <span class="kw">in</span> frames).show()<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -539,7 +547,7 @@ Warning
 </div>
 <p>we will use the mid-level API to create our Dataloader from a transformed list.</p>
 <div id="cell-56" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ImageTupleTfm(Transform):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ImageTupleTfm(Transform):</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"A wrapper to hold the data on path format"</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, seq_len<span class="op">=</span><span class="dv">20</span>):</span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>        store_attr()</span>
@@ -549,18 +557,18 @@ Warning
 <span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>        frames <span class="op">=</span> path.ls_sorted()</span>
 <span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>        n_frames <span class="op">=</span> <span class="bu">len</span>(frames)</span>
 <span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> <span class="bu">slice</span>(<span class="dv">0</span>, <span class="bu">min</span>(<span class="va">self</span>.seq_len, n_frames))</span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ImageTuple(<span class="bu">tuple</span>(PILImage.create(f) <span class="cf">for</span> f <span class="kw">in</span> frames[s]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ImageTuple(<span class="bu">tuple</span>(PILImage.create(f) <span class="cf">for</span> f <span class="kw">in</span> frames[s]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-57" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>tfm <span class="op">=</span> ImageTupleTfm(seq_len<span class="op">=</span><span class="dv">5</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>tfm <span class="op">=</span> ImageTupleTfm(seq_len<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>hammering_instance <span class="op">=</span> instances_path[<span class="dv">0</span>]</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>hammering_instance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>hammering_instance</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>Path('/home/tcapelle/.fastai/data/UCF101-frames/Hammering/v_Hammering_g14_c02')</code></pre>
 </div>
 </div>
 <div id="cell-58" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>tfm(hammering_instance).show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>tfm(hammering_instance).show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -571,42 +579,42 @@ Warning
 </div>
 <p>with this setup, we can use the <code>parent_label</code> as our labelleing function</p>
 <div id="cell-60" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>parent_label(hammering_instance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>parent_label(hammering_instance)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>'Hammering'</code></pre>
 </div>
 </div>
 <div id="cell-61" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>splits <span class="op">=</span> RandomSplitter()(instances_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>splits <span class="op">=</span> RandomSplitter()(instances_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We will use fastai<code>Datasets</code> class, we have to pass a <code>list</code> of transforms. The first list <code>[ImageTupleTfm(5)]</code> is how we grab the <code>x</code>‘s and the second list <code>[parent_label, Categorize]]</code> is how we grab the <code>y</code>’s.’ So, from each instance path, we grab the first 5 images to construct an <code>ImageTuple</code> and we grad the label of the action from the parent folder using <code>parent_label</code> and the we <code>Categorize</code> the labels.</p>
 <div id="cell-63" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> Datasets(instances_path, tfms<span class="op">=</span>[[ImageTupleTfm(<span class="dv">5</span>)], [parent_label, Categorize]], splits<span class="op">=</span>splits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> Datasets(instances_path, tfms<span class="op">=</span>[[ImageTupleTfm(<span class="dv">5</span>)], [parent_label, Categorize]], splits<span class="op">=</span>splits)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-64" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(ds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(ds)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>13320</code></pre>
 </div>
 </div>
 <div id="cell-65" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>dls <span class="op">=</span> ds.dataloaders(bs<span class="op">=</span><span class="dv">4</span>, after_item<span class="op">=</span>[Resize(<span class="dv">128</span>), ToTensor], </span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>                      after_batch<span class="op">=</span>[IntToFloatTensor, Normalize.from_stats(<span class="op">*</span>imagenet_stats)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>dls <span class="op">=</span> ds.dataloaders(bs<span class="op">=</span><span class="dv">4</span>, after_item<span class="op">=</span>[Resize(<span class="dv">128</span>), ToTensor], </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>                      after_batch<span class="op">=</span>[IntToFloatTensor, Normalize.from_stats(<span class="op">*</span>imagenet_stats)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>refactoring</p>
 <div id="cell-67" class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_action_dataloaders(files, bs<span class="op">=</span><span class="dv">8</span>, image_size<span class="op">=</span><span class="dv">64</span>, seq_len<span class="op">=</span><span class="dv">20</span>, val_idxs<span class="op">=</span><span class="va">None</span>, <span class="op">**</span>kwargs):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_action_dataloaders(files, bs<span class="op">=</span><span class="dv">8</span>, image_size<span class="op">=</span><span class="dv">64</span>, seq_len<span class="op">=</span><span class="dv">20</span>, val_idxs<span class="op">=</span><span class="va">None</span>, <span class="op">**</span>kwargs):</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"Create a dataloader with `val_idxs` splits"</span></span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    splits <span class="op">=</span> RandomSplitter()(files) <span class="cf">if</span> val_idxs <span class="kw">is</span> <span class="va">None</span> <span class="cf">else</span> IndexSplitter(val_idxs)(files)</span>
 <span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    itfm <span class="op">=</span> ImageTupleTfm(seq_len<span class="op">=</span>seq_len)</span>
 <span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>    ds <span class="op">=</span> Datasets(files, tfms<span class="op">=</span>[[itfm], [parent_label, Categorize]], splits<span class="op">=</span>splits)</span>
 <span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>    dls <span class="op">=</span> ds.dataloaders(bs<span class="op">=</span>bs, after_item<span class="op">=</span>[Resize(image_size), ToTensor], </span>
 <span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>                         after_batch<span class="op">=</span>[IntToFloatTensor, Normalize.from_stats(<span class="op">*</span>imagenet_stats)], drop_last<span class="op">=</span><span class="va">True</span>, <span class="op">**</span>kwargs)</span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dls</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-68" class="cell" data-execution_count="82">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>dls <span class="op">=</span> get_action_dataloaders(instances_path, bs<span class="op">=</span><span class="dv">32</span>, image_size<span class="op">=</span><span class="dv">64</span>, seq_len<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>dls.show_batch()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>dls <span class="op">=</span> get_action_dataloaders(instances_path, bs<span class="op">=</span><span class="dv">32</span>, image_size<span class="op">=</span><span class="dv">64</span>, seq_len<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>dls.show_batch()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -673,14 +681,14 @@ Warning
 </div>
 <p>we can get better view by overcharging the <code>show_batch</code> with our custom type, this is done for every type on fasti lib to present results correctly.</p>
 <div id="cell-70" class="cell" data-execution_count="96">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="at">@typedispatch</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="at">@typedispatch</span></span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show_batch(x:ImageTuple, y, samples, ctxs<span class="op">=</span><span class="va">None</span>, max_n<span class="op">=</span><span class="dv">10</span>, nrows<span class="op">=</span><span class="va">None</span>, ncols<span class="op">=</span><span class="va">None</span>, figsize<span class="op">=</span>(<span class="dv">18</span>,<span class="dv">6</span>), <span class="op">**</span>kwargs):</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ctxs <span class="kw">is</span> <span class="va">None</span>: ctxs <span class="op">=</span> get_grid(<span class="bu">min</span>(<span class="bu">len</span>(samples), max_n), nrows<span class="op">=</span>nrows, ncols<span class="op">=</span>ncols, figsize<span class="op">=</span>figsize)</span>
 <span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>    ctxs <span class="op">=</span> show_batch[<span class="bu">object</span>](x, y, samples, ctxs<span class="op">=</span>ctxs, max_n<span class="op">=</span>max_n, <span class="op">**</span>kwargs)</span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ctxs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ctxs</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-71" class="cell" data-execution_count="97">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>dls.show_batch()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>dls.show_batch()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -696,42 +704,42 @@ Warning
 <p>We are going to port the equivalent to Keras <code>TimeDistributed</code> Layer, this layer enables evaluating a pytorch <code>Module</code> over an time axis. The simplest solution would be to do something like:</p>
 <p>Let’s pretend that we have a batch (16) of sequences (5) of RGB images (3 channels) of size 64 by 64 pixels. Then the resulting tensor has shape <code>(16, 5, 3, 64, 64)</code> . And you want to feed everyone of this individual images through a <code>resnet18</code> as encoder. The simpler option is to split this tensor on 5 <code>(16, 3, 64, 64)</code> tensors and feed each of them independently to the resnet. We can define sucha wrapper layer lke this:</p>
 <div id="cell-75" class="cell" data-execution_count="98">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TimeDistributedNaive(Module):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TimeDistributedNaive(Module):</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, module):</span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.module <span class="op">=</span> module</span>
 <span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> torch.stack([<span class="va">self</span>.module(x_) <span class="cf">for</span> x_ <span class="kw">in</span> torch.unbind(x, dim<span class="op">=</span><span class="dv">1</span>)], dim<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> torch.stack([<span class="va">self</span>.module(x_) <span class="cf">for</span> x_ <span class="kw">in</span> torch.unbind(x, dim<span class="op">=</span><span class="dv">1</span>)], dim<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s try the module:</p>
 <div id="cell-77" class="cell" data-execution_count="99">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>image_encoder <span class="op">=</span> create_body(resnet18)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>image_encoder <span class="op">=</span> create_body(resnet18)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-78" class="cell" data-execution_count="100">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>image_encoder(torch.rand(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">64</span>,<span class="dv">64</span>)).shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>image_encoder(torch.rand(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">64</span>,<span class="dv">64</span>)).shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="100">
 <pre><code>torch.Size([2, 512, 2, 2])</code></pre>
 </div>
 </div>
 <div id="cell-79" class="cell" data-execution_count="101">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>td_resnet <span class="op">=</span> TimeDistributedNaive(image_encoder)</span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>td_resnet(torch.rand(<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">64</span>,<span class="dv">64</span>)).shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>td_resnet <span class="op">=</span> TimeDistributedNaive(image_encoder)</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>td_resnet(torch.rand(<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">64</span>,<span class="dv">64</span>)).shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="101">
 <pre><code>torch.Size([2, 5, 512, 2, 2])</code></pre>
 </div>
 </div>
 <p>and we get the layer applied over the “time” axis. This was my first approach, but this is very slow, as every image is treated independently. Also it does not support models that take multiple argumnets as inputs, nor kwargs. Let’s fix this iseeues one by one. A clear improvement is to “send” to the batch dim the images, while calling the module. Instead, we could feed the resnet with a “fatter” batch of 16*5 images and then split them:</p>
 <div id="cell-81" class="cell" data-execution_count="102">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TimeDistributedNaive2(Module):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TimeDistributedNaive2(Module):</span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, module):</span>
 <span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>        store_attr()</span>
 <span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
 <span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>        bs, seq_len <span class="op">=</span> x.shape[<span class="dv">0</span>], x.shape[<span class="dv">1</span>]   </span>
 <span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>        fat_tensor <span class="op">=</span> <span class="va">self</span>.module(x.view(bs<span class="op">*</span>seq_len, <span class="op">*</span>x.shape[<span class="dv">2</span>:]))</span>
-<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> fat_tensor.view(bs, seq_len, <span class="op">*</span>fat_tensor.shape[<span class="dv">1</span>:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> fat_tensor.view(bs, seq_len, <span class="op">*</span>fat_tensor.shape[<span class="dv">1</span>:])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-82" class="cell" data-execution_count="103">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>td_resnet <span class="op">=</span> TimeDistributedNaive2(image_encoder)</span>
-<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>td_resnet(torch.rand(<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">64</span>,<span class="dv">64</span>)).shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>td_resnet <span class="op">=</span> TimeDistributedNaive2(image_encoder)</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>td_resnet(torch.rand(<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">64</span>,<span class="dv">64</span>)).shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="103">
 <pre><code>torch.Size([2, 5, 512, 2, 2])</code></pre>
 </div>
@@ -741,7 +749,7 @@ Warning
 <p>:::</p>
 <p>The final version that I will be <a href="https://github.com/fastai/fastai/pull/3124">PR</a> to fastai is this one, it supports multiple <code>args</code> and <code>kwargs</code> and has both forwards methods.</p>
 <div id="cell-85" class="cell" data-execution_count="104">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _stack_tups(tuples, stack_dim<span class="op">=</span><span class="dv">1</span>):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _stack_tups(tuples, stack_dim<span class="op">=</span><span class="dv">1</span>):</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"Stack tuple of tensors along `stack_dim`"</span></span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">tuple</span>(torch.stack([t[i] <span class="cf">for</span> t <span class="kw">in</span> tuples], dim<span class="op">=</span>stack_dim) <span class="cf">for</span> i <span class="kw">in</span> range_of(tuples[<span class="dv">0</span>]))</span>
 <span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -779,14 +787,14 @@ Warning
 <span id="cb63-36"><a href="#cb63-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> out.view(bs, seq_len,<span class="op">*</span>out.shape[<span class="dv">1</span>:])</span>
 <span id="cb63-37"><a href="#cb63-37" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb63-38"><a href="#cb63-38" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb63-39"><a href="#cb63-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f'TimeDistributed(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>module<span class="sc">}</span><span class="ss">)'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb63-39"><a href="#cb63-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f'TimeDistributed(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>module<span class="sc">}</span><span class="ss">)'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-model" class="level2">
 <h2 class="anchored" data-anchor-id="the-model">The Model</h2>
 <p>We will make a simple baseline model. It will encode each frame individually using a pretrained resnet. We make use of the <code>TimeDistributed</code> layer to apply the resnet to each frame identically. This simple model will just average the probabilities of each frame individually. A <code>simple_splitter</code> function is also provided to avoid destroying the pretrained weights of the encoder.</p>
 <div id="cell-88" class="cell" data-execution_count="105">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SimpleModel(Module):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SimpleModel(Module):</span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, arch<span class="op">=</span>resnet34, n_out<span class="op">=</span><span class="dv">101</span>):</span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.encoder <span class="op">=</span> TimeDistributed(create_body(arch, pretrained<span class="op">=</span><span class="va">True</span>))</span>
 <span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.head <span class="op">=</span> TimeDistributed(create_head(<span class="dv">512</span>, <span class="dv">101</span>))</span>
@@ -794,7 +802,7 @@ Warning
 <span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> torch.stack(x, dim<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.head(<span class="va">self</span>.encoder(x)).mean(dim<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simple_splitter(model): <span class="cf">return</span> [params(model.encoder), params(model.head)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simple_splitter(model): <span class="cf">return</span> [params(model.encoder), params(model.head)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -810,14 +818,14 @@ Note
 </div>
 </div>
 <div id="cell-90" class="cell" data-execution_count="106">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> SimpleModel().cuda()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> SimpleModel().cuda()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-91" class="cell" data-execution_count="107">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> dls.one_batch()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> dls.one_batch()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>It is always a good idea to check what is going inside the model, and what is coming out.</p>
 <div id="cell-93" class="cell" data-execution_count="108">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="bu">type</span>(x) <span class="op">=</span> <span class="sc">}</span><span class="ss">,</span><span class="ch">\n</span><span class="sc">{</span><span class="bu">len</span>(x) <span class="op">=</span> <span class="sc">}</span><span class="ss"> ,</span><span class="ch">\n</span><span class="sc">{</span>x[<span class="dv">0</span>]<span class="sc">.</span>shape <span class="op">=</span> <span class="sc">}</span><span class="ss">, </span><span class="ch">\n</span><span class="sc">{</span>model(x)<span class="sc">.</span>shape <span class="op">=</span> <span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="bu">type</span>(x) <span class="op">=</span> <span class="sc">}</span><span class="ss">,</span><span class="ch">\n</span><span class="sc">{</span><span class="bu">len</span>(x) <span class="op">=</span> <span class="sc">}</span><span class="ss"> ,</span><span class="ch">\n</span><span class="sc">{</span>x[<span class="dv">0</span>]<span class="sc">.</span>shape <span class="op">=</span> <span class="sc">}</span><span class="ss">, </span><span class="ch">\n</span><span class="sc">{</span>model(x)<span class="sc">.</span>shape <span class="op">=</span> <span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>type(x) = &lt;class '__main__.ImageTuple'&gt;,
 len(x) = 5 ,
@@ -827,7 +835,7 @@ model(x).shape = torch.Size([32, 101])</code></pre>
 </div>
 <p>We are ready to create a Learner. The loss function is not mandatory, as the <code>DataLoader</code> already has the Binary Cross Entropy because we used a <code>Categorify</code> transform on the outputs when constructing the <code>Datasets</code>.</p>
 <div id="cell-95" class="cell" data-execution_count="109">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>dls.loss_func</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>dls.loss_func</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="109">
 <pre><code>FlattenedLoss of CrossEntropyLoss()</code></pre>
 </div>
@@ -837,10 +845,10 @@ model(x).shape = torch.Size([32, 101])</code></pre>
 <p>:::</p>
 <p>As this is a classification problem, we will monitor classification <code>accuracy</code>. You can pass the model splitter directly when creating the learner.</p>
 <div id="cell-97" class="cell" data-execution_count="110">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>learn <span class="op">=</span> Learner(dls, model, metrics<span class="op">=</span>[accuracy], splitter<span class="op">=</span>simple_splitter).to_fp16()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>learn <span class="op">=</span> Learner(dls, model, metrics<span class="op">=</span>[accuracy], splitter<span class="op">=</span>simple_splitter).to_fp16()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-98" class="cell" data-execution_count="111">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>learn.lr_find()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>learn.lr_find()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 
 </div>
@@ -856,9 +864,9 @@ model(x).shape = torch.Size([32, 101])</code></pre>
 </div>
 </div>
 <div id="cell-99" class="cell" data-execution_count="112">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>learn.fine_tune(<span class="dv">3</span>, <span class="fl">1e-3</span>, freeze_epochs<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>learn.fine_tune(<span class="dv">3</span>, <span class="fl">1e-3</span>, freeze_epochs<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">epoch</th>
@@ -894,7 +902,7 @@ model(x).shape = torch.Size([32, 101])</code></pre>
 </table>
 </div>
 <div class="cell-output cell-output-display">
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">epoch</th>
@@ -933,26 +941,26 @@ model(x).shape = torch.Size([32, 101])</code></pre>
 <p>68% not bad for our simple baseline with only 5 frames.</p>
 <p>We can improve our model by passing the outputs of the image encoder to an <code>nn.LSTM</code> to get some inter-frame relation. To do this, we have to get the features of the image encoder, so we have to modify our code and make use of the <code>create_body</code> function and add a pooling layer afterwards.</p>
 <div id="cell-102" class="cell" data-execution_count="114">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>arch <span class="op">=</span> resnet34</span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>encoder <span class="op">=</span> nn.Sequential(create_body(arch, pretrained<span class="op">=</span><span class="va">True</span>), nn.AdaptiveAvgPool2d(<span class="dv">1</span>), Flatten()).cuda()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>arch <span class="op">=</span> resnet34</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>encoder <span class="op">=</span> nn.Sequential(create_body(arch, pretrained<span class="op">=</span><span class="va">True</span>), nn.AdaptiveAvgPool2d(<span class="dv">1</span>), Flatten()).cuda()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>if we check what is the output of the encoder, for each image, we get a feature map of 512.</p>
 <div id="cell-104" class="cell" data-execution_count="115">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>encoder(x[<span class="dv">0</span>]).shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>encoder(x[<span class="dv">0</span>]).shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="115">
 <pre><code>torch.Size([32, 512])</code></pre>
 </div>
 </div>
 <div id="cell-105" class="cell" data-execution_count="116">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>tencoder <span class="op">=</span> TimeDistributed(encoder)</span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>tencoder(torch.stack(x, dim<span class="op">=</span><span class="dv">1</span>)).shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>tencoder <span class="op">=</span> TimeDistributed(encoder)</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>tencoder(torch.stack(x, dim<span class="op">=</span><span class="dv">1</span>)).shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="116">
 <pre><code>torch.Size([32, 5, 512])</code></pre>
 </div>
 </div>
 <p>this is perfect as input for a recurrent layer. Let’s refactor and add a linear layer at the end. We will output the hidden state to a linear layer to compute the probabilities. The idea behind, is that the hidden state encodes the temporal information of the sequence.</p>
 <div id="cell-107" class="cell" data-execution_count="117">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RNNModel(Module):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RNNModel(Module):</span>
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, arch<span class="op">=</span>resnet34, n_out<span class="op">=</span><span class="dv">101</span>, num_rnn_layers<span class="op">=</span><span class="dv">1</span>):</span>
 <span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.encoder <span class="op">=</span> TimeDistributed(nn.Sequential(create_body(arch, pretrained<span class="op">=</span><span class="va">True</span>), nn.AdaptiveAvgPool2d(<span class="dv">1</span>), Flatten()))</span>
 <span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.rnn <span class="op">=</span> nn.LSTM(<span class="dv">512</span>, <span class="dv">512</span>, num_layers<span class="op">=</span>num_rnn_layers, batch_first<span class="op">=</span><span class="va">True</span>)</span>
@@ -962,21 +970,21 @@ model(x).shape = torch.Size([32, 101])</code></pre>
 <span id="cb80-8"><a href="#cb80-8" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.encoder(x)</span>
 <span id="cb80-9"><a href="#cb80-9" aria-hidden="true" tabindex="-1"></a>        bs <span class="op">=</span> x.shape[<span class="dv">0</span>]</span>
 <span id="cb80-10"><a href="#cb80-10" aria-hidden="true" tabindex="-1"></a>        _, (h, _) <span class="op">=</span> <span class="va">self</span>.rnn(x)</span>
-<span id="cb80-11"><a href="#cb80-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.head(h.view(bs,<span class="op">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb80-11"><a href="#cb80-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.head(h.view(bs,<span class="op">-</span><span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>let’s make a splitter function to train the encoder and the rest separetely</p>
 <div id="cell-109" class="cell" data-execution_count="118">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rnnmodel_splitter(model):</span>
-<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [params(model.encoder), params(model.rnn)<span class="op">+</span>params(model.head)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rnnmodel_splitter(model):</span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [params(model.encoder), params(model.rnn)<span class="op">+</span>params(model.head)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-110" class="cell" data-execution_count="119">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>model2 <span class="op">=</span> RNNModel().cuda()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>model2 <span class="op">=</span> RNNModel().cuda()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-111" class="cell" data-execution_count="120">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>learn <span class="op">=</span> Learner(dls, model2, metrics<span class="op">=</span>[accuracy], splitter<span class="op">=</span>rnnmodel_splitter).to_fp16()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>learn <span class="op">=</span> Learner(dls, model2, metrics<span class="op">=</span>[accuracy], splitter<span class="op">=</span>rnnmodel_splitter).to_fp16()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-112" class="cell" data-execution_count="121">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>learn.lr_find()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>learn.lr_find()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 
 </div>
@@ -992,9 +1000,9 @@ model(x).shape = torch.Size([32, 101])</code></pre>
 </div>
 </div>
 <div id="cell-113" class="cell" data-execution_count="122">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>learn.fine_tune(<span class="dv">5</span>, <span class="fl">5e-3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>learn.fine_tune(<span class="dv">5</span>, <span class="fl">5e-3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">epoch</th>
@@ -1016,7 +1024,7 @@ model(x).shape = torch.Size([32, 101])</code></pre>
 </table>
 </div>
 <div class="cell-output cell-output-display">
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">epoch</th>
@@ -1068,17 +1076,17 @@ model(x).shape = torch.Size([32, 101])</code></pre>
 </div>
 <p>this models is harder to train. A good idea would be to add some Dropout. Let’s try increasing the sequence lenght. Another approach would be to use a better layer for this type of task, like the <a href="https://paperswithcode.com/method/convlstm">ConvLSTM</a> or a Transformer for images that are capable of modelling the spatio-temporal relations in a more sophisticated way. Some ideas: - Try sampling the frames differently, (randomly spacing, more frames, etc…)</p>
 <div id="cell-115" class="cell" data-execution_count="125">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="at">@typedispatch</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="at">@typedispatch</span></span>
 <span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show_results(x:ImageTuple, y:TensorCategory, samples, outs, ctxs<span class="op">=</span><span class="va">None</span>, max_n<span class="op">=</span><span class="dv">10</span>, nrows<span class="op">=</span><span class="va">None</span>, ncols<span class="op">=</span><span class="va">None</span>, figsize<span class="op">=</span>(<span class="dv">18</span>,<span class="dv">8</span>), <span class="op">**</span>kwargs):</span>
 <span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ctxs <span class="kw">is</span> <span class="va">None</span>: ctxs <span class="op">=</span> get_grid(<span class="bu">min</span>(<span class="bu">len</span>(samples), max_n), nrows<span class="op">=</span>nrows, ncols<span class="op">=</span>ncols, add_vert<span class="op">=</span><span class="dv">1</span>, figsize<span class="op">=</span>figsize)</span>
 <span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
 <span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a>        ctxs <span class="op">=</span> [b.show(ctx<span class="op">=</span>c, <span class="op">**</span>kwargs) <span class="cf">for</span> b,c,_ <span class="kw">in</span> <span class="bu">zip</span>(samples.itemgot(i),ctxs,<span class="bu">range</span>(max_n))]</span>
 <span id="cb87-6"><a href="#cb87-6" aria-hidden="true" tabindex="-1"></a>    ctxs <span class="op">=</span> [r.show(ctx<span class="op">=</span>c, color<span class="op">=</span><span class="st">'green'</span> <span class="cf">if</span> b<span class="op">==</span>r <span class="cf">else</span> <span class="st">'red'</span>, <span class="op">**</span>kwargs)</span>
 <span id="cb87-7"><a href="#cb87-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> b,r,c,_ <span class="kw">in</span> <span class="bu">zip</span>(samples.itemgot(<span class="dv">1</span>),outs.itemgot(<span class="dv">0</span>),ctxs,<span class="bu">range</span>(max_n))]</span>
-<span id="cb87-8"><a href="#cb87-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ctxs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb87-8"><a href="#cb87-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ctxs</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-116" class="cell" data-execution_count="126">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>learn.show_results()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>learn.show_results()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 
 </div>
@@ -1104,20 +1112,20 @@ model(x).shape = torch.Size([32, 101])</code></pre>
 <p>First things first, we will need to install the model:</p>
 <pre><code>!pip install -Uq timesformer-pytorch</code></pre>
 <div id="cell-120" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timesformer_pytorch <span class="im">import</span> TimeSformer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timesformer_pytorch <span class="im">import</span> TimeSformer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="train" class="level3">
 <h3 class="anchored" data-anchor-id="train">Train</h3>
 <p>the <code>TimeSformer</code> implementation expects a sequence of images in the form of: <code>(batch_size, seq_len, c, w, h)</code>. We need to wrap the model to stack the image sequence before feeding the forward method</p>
 <div id="cell-123" class="cell" data-execution_count="68">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyTimeSformer(TimeSformer):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyTimeSformer(TimeSformer):</span>
 <span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
 <span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> torch.stack(x, dim<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">super</span>().forward(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">super</span>().forward(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-124" class="cell" data-execution_count="69">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>timesformer <span class="op">=</span> MyTimeSformer(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>timesformer <span class="op">=</span> MyTimeSformer(</span>
 <span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>    dim <span class="op">=</span> <span class="dv">128</span>,</span>
 <span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>    image_size <span class="op">=</span> <span class="dv">128</span>,</span>
 <span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a>    patch_size <span class="op">=</span> <span class="dv">16</span>,</span>
@@ -1128,13 +1136,13 @@ model(x).shape = torch.Size([32, 101])</code></pre>
 <span id="cb92-9"><a href="#cb92-9" aria-hidden="true" tabindex="-1"></a>    dim_head <span class="op">=</span>  <span class="dv">64</span>,</span>
 <span id="cb92-10"><a href="#cb92-10" aria-hidden="true" tabindex="-1"></a>    attn_dropout <span class="op">=</span> <span class="fl">0.1</span>,</span>
 <span id="cb92-11"><a href="#cb92-11" aria-hidden="true" tabindex="-1"></a>    ff_dropout <span class="op">=</span> <span class="fl">0.1</span></span>
-<span id="cb92-12"><a href="#cb92-12" aria-hidden="true" tabindex="-1"></a>).cuda()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb92-12"><a href="#cb92-12" aria-hidden="true" tabindex="-1"></a>).cuda()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-125" class="cell" data-execution_count="70">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>learn_tf <span class="op">=</span> Learner(dls, timesformer, metrics<span class="op">=</span>[accuracy]).to_fp16()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>learn_tf <span class="op">=</span> Learner(dls, timesformer, metrics<span class="op">=</span>[accuracy]).to_fp16()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-126" class="cell" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>learn_tf.lr_find()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>learn_tf.lr_find()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 
 </div>
@@ -1150,9 +1158,9 @@ model(x).shape = torch.Size([32, 101])</code></pre>
 </div>
 </div>
 <div id="cell-127" class="cell" data-execution_count="71">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>learn_tf.fit_one_cycle(<span class="dv">12</span>, <span class="fl">5e-4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>learn_tf.fit_one_cycle(<span class="dv">12</span>, <span class="fl">5e-4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">epoch</th>
@@ -1252,7 +1260,7 @@ model(x).shape = torch.Size([32, 101])</code></pre>
 </div>
 </div>
 <div id="cell-128" class="cell" data-execution_count="72">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>learn_tf.show_results()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>learn_tf.show_results()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 
 </div>
@@ -1327,236 +1335,243 @@ model(x).shape = torch.Size([32, 101])</code></pre>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/tcapelle\.github\.io\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/tcapelle\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        return container.innerHTML
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1564,185 +1579,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 
 
