@@ -1,0 +1,15 @@
+---
+title: "Page Not Found"
+description: "Oops! This page does not exist."
+format:
+  html:
+    page-layout: full
+---
+
+```{=html}
+<div style="text-align:center; margin-top:2rem;">
+  <img src="error.gif" alt="Error illustration" style="max-width: min(400px, 80%); width:100%; height:auto;" />
+  <h2 style="margin-top:1.5rem;">Looks like you're lost.</h2>
+  <p>Head back <a href="/">home</a> or try the navigation above.</p>
+</div>
+```
