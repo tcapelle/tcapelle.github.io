@@ -11,8 +11,8 @@ I love contributing to OSS and the ML community!
 
 ## Experience {.unnumbered}
 
-### Weights & Biases {.company}
-**ML Engineer** (2022-present)
+### Weights & Biases by CoreWeave {.company}
+**Staff ML Engineer** (2021-present)
 
 - LLMs everywhere: Fine-tuning, aligning, using, deploying, quantizing, eating for breakfast
 - Improving user experience through examples in [wandb/examples](https://github.com/wandb/examples)

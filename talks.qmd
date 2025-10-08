@@ -5,10 +5,10 @@ sidebar: false
 title-block-banner: false
 ---
 
-Since joining Weights & Biases in 2022, I've had the opportunity to share my expertise through technical demos and presentations at various conferences and meetups worldwide.
+Since joining Weights & Biases in 2021, I've had the opportunity to share my expertise through technical demos and presentations at various conferences and meetups worldwide.
 
 Below are some highlights of my speaking engagements:
-
+- [Google Dev 2025] - Getting started with Agents workshop - Paris, Google Offices
 - [IADevs 2024 - Session on Generative AI](https://www.youtube.com/live/bbMi6UxbfM4) - Chile, November 2024
 - [Fine-tuning an LLM judge to reduce hallucination: Mistral and W&B](https://www.youtube.com/watch?v=VBbq7NPWzlo&t=2s), Webinar, July 2024
 - [Nvidia GTC 2024 - Optimizing Large Language Models: An Experimental Approach to Pruning and Fine-Tuning LLama2 7B](https://www.nvidia.com/en-us/on-demand/session/gtc24-s62348/), GTC 2024, April 2024
