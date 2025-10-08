@@ -1,7 +1,2 @@
 /.quarto/
-/._site/*
-/
-
-**/*.quarto_ipynb
-
-/.quarto/
+/_site/
