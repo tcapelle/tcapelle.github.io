@@ -61,3 +61,11 @@
   description: |
     GGUF and llama-cpp are a game changer for running LLMs locally.
   image: blog_data/gguf.png
+
+- title:  "Unlocking GPU power: Teaching AI to write Triton kernels"
+  path: https://wandb.ai/grpo-cuda/axolotl-grpo/reports/Unlocking-GPU-power-Teaching-AI-to-write-Triton-kernels--VmlldzoxMjQ1MzEyOQ
+  date: 2025-04-01
+  categories: [LLMs, Triton, GPU, GRPO]
+  description: |
+    Teaching AI to write Triton kernels.
+  image: blog_data/grpo.png
