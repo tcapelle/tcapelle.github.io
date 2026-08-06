@@ -3,7 +3,11 @@ title: "capecape"
 title-block-banner: false
 ---
 
-Hello! I am Thomas Capelle (cape), Machine Learning engineer at [Weights & Biases](https://wandb.ai/capecape) working on the AI Applied Team. I am responsible for keeping the [wandb/examples](https://github.com/wandb/examples) repository live and up to date. I also build content on ML-OPS, application of `wandb` to industry and fun deep learning in general. Previously I was using deep learning to solve short term forecasting for solar energy at [Steady Sun](https://steadysun.fr). I have a background in Urban Planning, Combinatorial Optimization, Transportation Economics and Applied Math.
+Hello! I am Thomas Capelle (cape), Staff Machine Learning Engineer at [Weights & Biases](https://wandb.ai/capecape) (now part of CoreWeave), on the AI Applied Team.
+
+My current work is in **auto research** and **physical AI**. I build [Senpai](https://github.com/wandb/senpai), an autonomous ML research framework where an advisor agent opens hypotheses as GitHub PRs and student agents on GPU nodes implement, run and report back — the advisor merges what wins and closes the dead ends, with W&B tracking every experiment (ICML poster). We point it at **CFD surrogate modeling**, where it has driven us to state-of-the-art results on benchmarks like AirfRANS, TandemFoilSet and DrivAerML, and at the aerodynamics work we do with the **Aston Martin Aramco Formula One Team**. A recurring theme there: deterministic, MSE-trained surrogates predict a conditional mean and smooth away exactly the structure that matters, so a lot of the interesting work is in flow matching and diffusion models that put the high-frequency detail back into pressure and velocity fields — and give you a calibrated ensemble instead of a single point estimate.
+
+Before that I spent several years on LLMs — fine-tuning, aligning, evaluating, quantizing, deploying — and on making `wandb` genuinely useful to practitioners through [wandb/examples](https://github.com/wandb/examples), MLOps content and [Fully Connected](https://wandb.com/fc). Earlier still I used deep learning for short-term solar forecasting at [Steady Sun](https://steadysun.fr/). I have a background in Urban Planning, Combinatorial Optimization, Transportation Economics and Applied Math.
 
 I love contributing to OSS and the ML community!
 
@@ -12,28 +16,31 @@ I love contributing to OSS and the ML community!
 ## Experience {.unnumbered}
 
 ### Weights & Biases by CoreWeave {.company}
-**Staff ML Engineer** (2021-present)
+**Staff ML Engineer** (2021–present)
 
-- LLMs everywhere: Fine-tuning, aligning, using, deploying, quantizing, eating for breakfast
+- [Senpai](https://github.com/wandb/senpai) — an autonomous ML research framework: advisor and student agents on Kubernetes coordinating entirely through GitHub PRs and labels, with W&B as the experiment record (ICML poster)
+- State-of-the-art CFD surrogate modeling with the Aston Martin Aramco Formula One Team — neural PDE surrogates for pressure and velocity fields, with flow matching / diffusion residual models to recover high-frequency detail and quantify uncertainty
+- Large-scale distributed training on GPU clusters: elastic multi-node runs, fault tolerance, checkpointing and resilient recovery
+- LLMs everywhere: fine-tuning, aligning, using, deploying, quantizing, eating for breakfast
 - Improving user experience through examples in [wandb/examples](https://github.com/wandb/examples)
-- Creating content for [fully-connected](https://wandb.com/fc) on how to make machine learning better
-- Help companies integrating wandb into their MLOPS workflows
+- Creating content for [Fully Connected](https://wandb.com/fc) on how to make machine learning better
+- Helping companies integrate wandb into their MLOps workflows
 
 ### Steady Sun {.company}
 **ML Engineer** (2020-2021)
 
 - Developing next version of short term forecasting algorithm based on sky imager
-- Integration of ML tools to the steadysun code base
-- R&D in Deep Learning for detection/segmentation and forecasting of sky images
+- Integration of ML tools into the Steady Sun code base
+- R&D in deep learning for detection/segmentation and forecasting of sky images
 - Collaboration with NVIDIA AI on deployment and production of DL models
 
 ### INES CEA {.company}
 **Research Engineer** (2018-2020)
 
-- Development of algorithms for failure detection in Photovoltaic Systems
-- Deep Learning model for parameter regression for IV-curve of photovoltaic modules
-- Thermal Image segmentation and classification model
-- Project engineer and coordination for Franco-Chilean partnership, international cooperation with multidisciplinary laboratories
+- Development of algorithms for failure detection in photovoltaic systems
+- Deep learning model for parameter regression of IV-curves of photovoltaic modules
+- Thermal image segmentation and classification model
+- Project engineer and coordinator for a Franco-Chilean partnership, international cooperation with multidisciplinary laboratories
 
 ### Inria {.company}
 **Research Engineer** (2017-2018)
@@ -44,20 +51,20 @@ I love contributing to OSS and the ML community!
 **PhD Researcher** (2013-2016)
 
 - Development of mathematical frameworks for urban/transport model calibration
-- Multidisciplinary team work (Engineers, Economists, Urbanists)
-- Supervision of interns work
+- Multidisciplinary team work (engineers, economists, urbanists)
+- Supervision of interns
 - International conferences and peer-reviewed publications
 
 ### CIRRELT {.company}
 **Master Intern** @ [Polytech Montréal](https://www.cirrelt.ca/) (2011)
 
-- Location and Routing modelling: Development of algorithms for logistics
-- Implementation of a [Column Generation algorithm](https://www.sciencedirect.com/science/article/pii/S0377221718304740)
+- Location and routing modelling: development of algorithms for logistics
+- Implementation of a [column generation algorithm](https://www.sciencedirect.com/science/article/pii/S0377221718304740)
 
 ### Universidad de los Andes {.company}
 **Assistant Professor** (2010)
 
-- Analysis and Algebra for engineers
+- Analysis and algebra for engineers
 
 ## Publications {.unnumbered}
 
