@@ -3,13 +3,11 @@ title: "capecape"
 title-block-banner: false
 ---
 
-Hello! I am Thomas Capelle (cape), Staff Machine Learning Engineer at [Weights & Biases](https://wandb.ai/capecape) (now part of CoreWeave), on the AI Applied Team.
+I'm Thomas Capelle (cape), Staff Machine Learning Engineer at [Weights & Biases](https://wandb.ai/capecape) (now part of CoreWeave), on the AI Applied Team.
 
-My current work is in **auto research** and **physical AI**. I build [Senpai](https://github.com/wandb/senpai), an autonomous ML research framework where an advisor agent opens hypotheses as GitHub PRs and student agents on GPU nodes implement, run and report back — the advisor merges what wins and closes the dead ends, with W&B tracking every experiment (ICML poster). We point it at **CFD surrogate modeling**, where it has driven us to state-of-the-art results on benchmarks like AirfRANS, TandemFoilSet and DrivAerML, and at the aerodynamics work we do with the **Aston Martin Aramco Formula One Team**. A recurring theme there: deterministic, MSE-trained surrogates predict a conditional mean and smooth away exactly the structure that matters, so a lot of the interesting work is in flow matching and diffusion models that put the high-frequency detail back into pressure and velocity fields — and give you a calibrated ensemble instead of a single point estimate.
+These days I build [Senpai](https://wandb.github.io/senpai/), an autonomous ML research framework (ICML 2026), and use it on CFD surrogate modeling (AirfRANS, TandemFoilSet, DrivAerML) and aerodynamics with the **Aston Martin Aramco Formula One Team**. Most of the interesting work is flow matching and diffusion models for pressure and velocity fields.
 
-Before that I spent several years on LLMs — fine-tuning, aligning, evaluating, quantizing, deploying — and on making `wandb` genuinely useful to practitioners through [wandb/examples](https://github.com/wandb/examples), MLOps content and [Fully Connected](https://wandb.com/fc). Earlier still I used deep learning for short-term solar forecasting at [Steady Sun](https://steadysun.fr/). I have a background in Urban Planning, Combinatorial Optimization, Transportation Economics and Applied Math.
-
-I love contributing to OSS and the ML community!
+Before that I spent several years on LLMs: fine-tuning, aligning, evaluating, quantizing, deploying, and making `wandb` useful to practitioners through [wandb/examples](https://github.com/wandb/examples), MLOps content and [Fully Connected](https://wandb.com/fc). Earlier still I used deep learning for short-term solar forecasting at [Steady Sun](https://steadysun.fr/). Background in Urban Planning, Combinatorial Optimization, Transportation Economics and Applied Math.
 
 ![](blog_data/cargo_cape.jpg){.profile-photo fig-alt="Profile photo"}
 
