@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>capecape – capepage</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -32,15 +38,14 @@ ul.task-list li input[type="checkbox"] {
 <link href="./favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f8690789a940fa323b05f425139a1407.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-53d6c8f0b3f9c31b44cb307607e3be2e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,10 +84,6 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
-  </div>
           <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./about.html" aria-current="page"> 
@@ -150,19 +151,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Hello! I am Thomas Capelle (cape), Machine Learning engineer at <a href="https://wandb.ai/capecape">Weights &amp; Biases</a> working on the AI Applied Team. I am responsible for keeping the <a href="https://github.com/wandb/examples">wandb/examples</a> repository live and up to date. I also build content on ML-OPS, application of <code>wandb</code> to industry and fun deep learning in general. Previously I was using deep learning to solve short term forecasting for solar energy at <a href="https://steadysun.fr">Steady Sun</a>. I have a background in Urban Planning, Combinatorial Optimization, Transportation Economics and Applied Math.</p>
+<p>Hello! I am Thomas Capelle (cape), Staff Machine Learning Engineer at <a href="https://wandb.ai/capecape">Weights &amp; Biases</a> (now part of CoreWeave), on the AI Applied Team.</p>
+<p>My current work is in <strong>auto research</strong> and <strong>physical AI</strong>. I build <a href="https://github.com/wandb/senpai">Senpai</a>, an autonomous ML research framework where an advisor agent opens hypotheses as GitHub PRs and student agents on GPU nodes implement, run and report back — the advisor merges what wins and closes the dead ends, with W&amp;B tracking every experiment (ICML poster). We point it at <strong>CFD surrogate modeling</strong>, where it has driven us to state-of-the-art results on benchmarks like AirfRANS, TandemFoilSet and DrivAerML, and at the aerodynamics work we do with the <strong>Aston Martin Aramco Formula One Team</strong>. A recurring theme there: deterministic, MSE-trained surrogates predict a conditional mean and smooth away exactly the structure that matters, so a lot of the interesting work is in flow matching and diffusion models that put the high-frequency detail back into pressure and velocity fields — and give you a calibrated ensemble instead of a single point estimate.</p>
+<p>Before that I spent several years on LLMs — fine-tuning, aligning, evaluating, quantizing, deploying — and on making <code>wandb</code> genuinely useful to practitioners through <a href="https://github.com/wandb/examples">wandb/examples</a>, MLOps content and <a href="https://wandb.com/fc">Fully Connected</a>. Earlier still I used deep learning for short-term solar forecasting at <a href="https://steadysun.fr/">Steady Sun</a>. I have a background in Urban Planning, Combinatorial Optimization, Transportation Economics and Applied Math.</p>
 <p>I love contributing to OSS and the ML community!</p>
 <p><img src="blog_data/cargo_cape.jpg" class="profile-photo img-fluid" alt="Profile photo"></p>
 <section id="experience" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="experience">Experience</h2>
 <section id="weights-biases-by-coreweave" class="level3 company">
 <h3 class="company anchored" data-anchor-id="weights-biases-by-coreweave">Weights &amp; Biases by CoreWeave</h3>
-<p><strong>Staff ML Engineer</strong> (2021-present)</p>
+<p><strong>Staff ML Engineer</strong> (2021–present)</p>
 <ul>
-<li>LLMs everywhere: Fine-tuning, aligning, using, deploying, quantizing, eating for breakfast</li>
+<li><a href="https://github.com/wandb/senpai">Senpai</a> — an autonomous ML research framework: advisor and student agents on Kubernetes coordinating entirely through GitHub PRs and labels, with W&amp;B as the experiment record (ICML poster)</li>
+<li>State-of-the-art CFD surrogate modeling with the Aston Martin Aramco Formula One Team — neural PDE surrogates for pressure and velocity fields, with flow matching / diffusion residual models to recover high-frequency detail and quantify uncertainty</li>
+<li>Large-scale distributed training on GPU clusters: elastic multi-node runs, fault tolerance, checkpointing and resilient recovery</li>
+<li>LLMs everywhere: fine-tuning, aligning, using, deploying, quantizing, eating for breakfast</li>
 <li>Improving user experience through examples in <a href="https://github.com/wandb/examples">wandb/examples</a></li>
-<li>Creating content for <a href="https://wandb.com/fc">fully-connected</a> on how to make machine learning better</li>
-<li>Help companies integrating wandb into their MLOPS workflows</li>
+<li>Creating content for <a href="https://wandb.com/fc">Fully Connected</a> on how to make machine learning better</li>
+<li>Helping companies integrate wandb into their MLOps workflows</li>
 </ul>
 </section>
 <section id="steady-sun" class="level3 company">
@@ -170,8 +176,8 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>ML Engineer</strong> (2020-2021)</p>
 <ul>
 <li>Developing next version of short term forecasting algorithm based on sky imager</li>
-<li>Integration of ML tools to the steadysun code base</li>
-<li>R&amp;D in Deep Learning for detection/segmentation and forecasting of sky images</li>
+<li>Integration of ML tools into the Steady Sun code base</li>
+<li>R&amp;D in deep learning for detection/segmentation and forecasting of sky images</li>
 <li>Collaboration with NVIDIA AI on deployment and production of DL models</li>
 </ul>
 </section>
@@ -179,10 +185,10 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="company anchored" data-anchor-id="ines-cea">INES CEA</h3>
 <p><strong>Research Engineer</strong> (2018-2020)</p>
 <ul>
-<li>Development of algorithms for failure detection in Photovoltaic Systems</li>
-<li>Deep Learning model for parameter regression for IV-curve of photovoltaic modules</li>
-<li>Thermal Image segmentation and classification model</li>
-<li>Project engineer and coordination for Franco-Chilean partnership, international cooperation with multidisciplinary laboratories</li>
+<li>Development of algorithms for failure detection in photovoltaic systems</li>
+<li>Deep learning model for parameter regression of IV-curves of photovoltaic modules</li>
+<li>Thermal image segmentation and classification model</li>
+<li>Project engineer and coordinator for a Franco-Chilean partnership, international cooperation with multidisciplinary laboratories</li>
 </ul>
 </section>
 <section id="inria" class="level3 company">
@@ -197,8 +203,8 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>PhD Researcher</strong> (2013-2016)</p>
 <ul>
 <li>Development of mathematical frameworks for urban/transport model calibration</li>
-<li>Multidisciplinary team work (Engineers, Economists, Urbanists)</li>
-<li>Supervision of interns work</li>
+<li>Multidisciplinary team work (engineers, economists, urbanists)</li>
+<li>Supervision of interns</li>
 <li>International conferences and peer-reviewed publications</li>
 </ul>
 </section>
@@ -206,15 +212,15 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="company anchored" data-anchor-id="cirrelt">CIRRELT</h3>
 <p><strong>Master Intern</strong> @ <a href="https://www.cirrelt.ca/">Polytech Montréal</a> (2011)</p>
 <ul>
-<li>Location and Routing modelling: Development of algorithms for logistics</li>
-<li>Implementation of a <a href="https://www.sciencedirect.com/science/article/pii/S0377221718304740">Column Generation algorithm</a></li>
+<li>Location and routing modelling: development of algorithms for logistics</li>
+<li>Implementation of a <a href="https://www.sciencedirect.com/science/article/pii/S0377221718304740">column generation algorithm</a></li>
 </ul>
 </section>
 <section id="universidad-de-los-andes" class="level3 company">
 <h3 class="company anchored" data-anchor-id="universidad-de-los-andes">Universidad de los Andes</h3>
 <p><strong>Assistant Professor</strong> (2010)</p>
 <ul>
-<li>Analysis and Algebra for engineers</li>
+<li>Analysis and algebra for engineers</li>
 </ul>
 </section>
 </section>
