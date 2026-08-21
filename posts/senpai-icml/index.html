@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Thomas Capelle">
+<meta name="dcterms.date" content="2026-07-15">
+<meta name="description" content="An observability-based research harness where an Advisor agent proposes experiments as GitHub PRs and Student agents run them — presented at ICML 2026’s AI for Science Workshop">
 
-<title>capecape – capepage</title>
+<title>SENPAI: Self-ExperimentatioN for Physical AI – capepage</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,23 +32,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.ico" rel="icon">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-53d6c8f0b3f9c31b44cb307607e3be2e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-53d6c8f0b3f9c31b44cb307607e3be2e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,26 +78,26 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
           <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">capecape</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">capeblog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./talks.html"> 
+    <a class="nav-link" href="../../talks.html"> 
 <span class="menu-text">capetalks</span></a>
   </li>  
   <li class="nav-item compact">
@@ -125,141 +128,109 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">SENPAI: Self-ExperimentatioN for Physical AI</h1>
+                  <div>
+        <div class="description">
+          An observability-based research harness where an Advisor agent proposes experiments as GitHub PRs and Student agents run them — presented at ICML 2026’s AI for Science Workshop
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Agents</div>
+                <div class="quarto-category">CFD</div>
+                <div class="quarto-category">Physical AI</div>
+                <div class="quarto-category">W&amp;B</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Thomas Capelle </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 15, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">capecape</h1>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
-
-
-<p>I’m Thomas Capelle (cape), Staff Machine Learning Engineer at <a href="https://wandb.ai/capecape">Weights &amp; Biases</a> (now part of CoreWeave), on the AI Applied Team.</p>
-<p>These days I build <a href="https://wandb.github.io/senpai/">Senpai</a>, an autonomous ML research framework (ICML 2026), and use it on CFD surrogate modeling (AirfRANS, TandemFoilSet, DrivAerML) and aerodynamics with the <strong>Aston Martin Aramco Formula One Team</strong>. Most of the interesting work is flow matching and diffusion models for pressure and velocity fields.</p>
-<p>Before that I spent several years on LLMs: fine-tuning, aligning, evaluating, quantizing, deploying, and making <code>wandb</code> useful to practitioners through <a href="https://github.com/wandb/examples">wandb/examples</a>, MLOps content and <a href="https://wandb.com/fc">Fully Connected</a>. Earlier still I used deep learning for short-term solar forecasting at <a href="https://steadysun.fr/">Steady Sun</a>. Background in Urban Planning, Combinatorial Optimization, Transportation Economics and Applied Math.</p>
-<p><img src="blog_data/cargo_cape.jpg" class="profile-photo img-fluid" alt="Profile photo"></p>
-<section id="experience" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="experience">Experience</h2>
-<section id="weights-biases-by-coreweave" class="level3 company">
-<h3 class="company anchored" data-anchor-id="weights-biases-by-coreweave">Weights &amp; Biases by CoreWeave</h3>
-<p><strong>Staff ML Engineer</strong> (2021–present)</p>
-<ul>
-<li><a href="https://github.com/wandb/senpai">Senpai</a> — an autonomous ML research framework: advisor and student agents on Kubernetes coordinating entirely through GitHub PRs and labels, with W&amp;B as the experiment record (ICML poster)</li>
-<li>State-of-the-art CFD surrogate modeling with the Aston Martin Aramco Formula One Team — neural PDE surrogates for pressure and velocity fields, with flow matching / diffusion residual models to recover high-frequency detail and quantify uncertainty</li>
-<li>Large-scale distributed training on GPU clusters: elastic multi-node runs, fault tolerance, checkpointing and resilient recovery</li>
-<li>LLMs everywhere: fine-tuning, aligning, using, deploying, quantizing, eating for breakfast</li>
-<li>Improving user experience through examples in <a href="https://github.com/wandb/examples">wandb/examples</a></li>
-<li>Creating content for <a href="https://wandb.com/fc">Fully Connected</a> on how to make machine learning better</li>
-<li>Helping companies integrate wandb into their MLOps workflows</li>
-</ul>
-</section>
-<section id="steady-sun" class="level3 company">
-<h3 class="company anchored" data-anchor-id="steady-sun">Steady Sun</h3>
-<p><strong>ML Engineer</strong> (2020-2021)</p>
-<ul>
-<li>Developing next version of short term forecasting algorithm based on sky imager</li>
-<li>Integration of ML tools into the Steady Sun code base</li>
-<li>R&amp;D in deep learning for detection/segmentation and forecasting of sky images</li>
-<li>Collaboration with NVIDIA AI on deployment and production of DL models</li>
-</ul>
-</section>
-<section id="ines-cea" class="level3 company">
-<h3 class="company anchored" data-anchor-id="ines-cea">INES CEA</h3>
-<p><strong>Research Engineer</strong> (2018-2020)</p>
-<ul>
-<li>Development of algorithms for failure detection in photovoltaic systems</li>
-<li>Deep learning model for parameter regression of IV-curves of photovoltaic modules</li>
-<li>Thermal image segmentation and classification model</li>
-<li>Project engineer and coordinator for a Franco-Chilean partnership, international cooperation with multidisciplinary laboratories</li>
-</ul>
-</section>
-<section id="inria" class="level3 company">
-<h3 class="company anchored" data-anchor-id="inria">Inria</h3>
-<p><strong>Research Engineer</strong> (2017-2018)</p>
-<ul>
-<li>Integration of spatial models with air quality and forecast models</li>
-</ul>
-</section>
-<section id="inria-steep" class="level3 company">
-<h3 class="company anchored" data-anchor-id="inria-steep">Inria STEEP</h3>
-<p><strong>PhD Researcher</strong> (2013-2016)</p>
-<ul>
-<li>Development of mathematical frameworks for urban/transport model calibration</li>
-<li>Multidisciplinary team work (engineers, economists, urbanists)</li>
-<li>Supervision of interns</li>
-<li>International conferences and peer-reviewed publications</li>
-</ul>
-</section>
-<section id="cirrelt" class="level3 company">
-<h3 class="company anchored" data-anchor-id="cirrelt">CIRRELT</h3>
-<p><strong>Master Intern</strong> @ <a href="https://www.cirrelt.ca/">Polytech Montréal</a> (2011)</p>
-<ul>
-<li>Location and routing modelling: development of algorithms for logistics</li>
-<li>Implementation of a <a href="https://www.sciencedirect.com/science/article/pii/S0377221718304740">column generation algorithm</a></li>
-</ul>
-</section>
-<section id="universidad-de-los-andes" class="level3 company">
-<h3 class="company anchored" data-anchor-id="universidad-de-los-andes">Universidad de los Andes</h3>
-<p><strong>Assistant Professor</strong> (2010)</p>
-<ul>
-<li>Analysis and algebra for engineers</li>
-</ul>
-</section>
-</section>
-<section id="publications" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="publications">Publications</h2>
-<p>The full list of my publications is available via <a href="https://scholar.google.com/citations?hl=en&amp;user=54AmAVUAAAAJ&amp;view_op=list_works&amp;gmla=AJsN-F7KXg9I52kC7hCSnQgV_2MTcXiM1PuhuT_NEaE2x3tej2k7jhuagVXFkllIfU7LEkrYY_oBISUxD2LxrZ78F1NLsFmyEoO3Lfrqree5d3tRiPU94-s">Google Scholar</a></p>
-</section>
-<section id="education" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="education">Education</h2>
-<div class="grid">
-<div class="g-col-4">
-<p><strong>PhD in Computer Science</strong><br>
-<a href="https://www.uga.fr">Université de Grenoble</a><br>
-2017</p>
-</div>
-<div class="g-col-4">
-<p><strong>MSc in Civil Engineering - Transport</strong><br>
-<a href="https://www.uchile.cl">Universidad de Chile</a><br>
-2013</p>
-</div>
-<div class="g-col-4">
-<p><strong>Mathematical Engineer</strong><br>
-<a href="https://www.dim.uchile.cl">Universidad de Chile</a><br>
-2013</p>
-</div>
+<p>We just presented <strong>SENPAI</strong> (Self-ExperimentatioN for Physical AI) at the <a href="https://openreview.net/forum?id=g0bJFA9gVT">AI for Science Workshop at ICML 2026</a>, with my co-authors Morgan McGuire and Justin Hodges at W&amp;B / CoreWeave.</p>
+<p>SENPAI is a semi-autonomous ML research harness: an <code>Advisor</code> agent reads the current experiment ledger, proposes a literature-grounded hypothesis as a draft PR, and assigns it to a GPU-backed <code>Student</code>. The Student checks out the branch, modifies the training code, runs the experiment, logs metrics to W&amp;B, and reports results in the PR. The Advisor then merges, requests revision, or closes the line of inquiry. Humans steer by opening GitHub issues or commenting on PRs — steering is occasional, not constant.</p>
+<section id="why-ground-agent-state-in-prs-not-memory" class="level2">
+<h2 class="anchored" data-anchor-id="why-ground-agent-state-in-prs-not-memory">Why ground agent state in PRs, not memory</h2>
+<p>Most autonomous-research agents keep hypotheses, results, and next steps in their own scratchpads or context window. That’s fragile: state gets lost across context compactions, isn’t inspectable by a human without reading agent transcripts, and can’t easily be recovered if a run crashes.</p>
+<p>SENPAI’s central design choice is to ground the research loop in systems of record teams already use and trust: pull requests and git history for hypotheses, code changes, and review; W&amp;B for configs, metrics, checkpoints, and traces. Every hypothesis, diff, and training result becomes both machine-queryable and researcher-reviewable — a durable, auditable experiment ledger rather than something living only in an agent’s head.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="architecture.png" class="img-fluid figure-img"></p>
+<figcaption>SENPAI architecture: Advisor and Student agents coordinating through GitHub PRs and a W&amp;B experiment ledger</figcaption>
+</figure>
 </div>
 </section>
-<section id="languages" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="languages">Languages</h2>
-<div class="d-flex justify-content-between">
+<section id="cfd-as-the-proving-ground" class="level2">
+<h2 class="anchored" data-anchor-id="cfd-as-the-proving-ground">CFD as the proving ground</h2>
+<p>SENPAI is problem-agnostic, but we evaluated it on CFD-surrogate recipe search, where performance depends on architecture, optimization, loss design, normalization, and physics-aware considerations — a space where strong recipes usually require both ML expertise and domain knowledge that many teams don’t have in one place.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cfd-problem-gallery.png" class="img-fluid figure-img"></p>
+<figcaption>Benchmarks: AirfRANS, TandemFoilSet, and DrivAerML</figcaption>
+</figure>
+</div>
+<p>Starting from Transolver-style baselines, SENPAI discovered improved recipes across all three benchmarks:</p>
 <ul>
-<li><strong>Spanish</strong> (mother tongue)</li>
-<li><strong>French</strong> (native)</li>
-<li><strong>English</strong> (full professional proficiency C1)</li>
+<li><strong>DrivAerML</strong>: best single-model surface- and volume-pressure relative-L2 error among compared references, with lower wall-shear-stress error, at <strong>3.56%</strong> surface rel-L2</li>
+<li><strong>AirfRANS</strong>: surface MSE of <strong>0.00130</strong>, below every compared reference (vs.&nbsp;0.0043 baseline)</li>
+<li><strong>TandemFoilSet</strong>: lower cruise-uniform-split full-field MSE (<strong>1.7e-3</strong>) than the reported benchmark</li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="drivaerml-pareto.png" class="img-fluid figure-img"></p>
+<figcaption>DrivAerML pareto front — SENPAI-discovered recipes vs.&nbsp;compared references</figcaption>
+</figure>
 </div>
-<hr>
-<div class="d-flex justify-content-between">
-<p><a href="https://github.com/tcapelle/CV/releases/latest">Download LaTeX CV</a> | <a href="https://www.kaggle.com/tcapelle">Kaggle Profile</a></p>
+</section>
+<section id="scale-and-where-it-actually-breaks" class="level2">
+<h2 class="anchored" data-anchor-id="scale-and-where-it-actually-breaks">Scale, and where it actually breaks</h2>
+<p>Across the research programme, SENPAI produced over <strong>3,000 PRs</strong>, <strong>11,000 tracked training runs</strong>, and ran with up to <strong>59 concurrent Student agents</strong> over multi-day deployments (9 days at the longest).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="experiment-ledger-sankey.png" class="img-fluid figure-img"></p>
+<figcaption>One slice of the experiment ledger: 167 TandemFoilSet-Balanced PRs by hypothesis family and outcome</figcaption>
+</figure>
 </div>
+<p>We also audited a 24-hour fleet trace — 53,022 Claude requests, 5.24B tokens — to understand failure modes at this scale. The dominant failures weren’t bad science: they were monitor-driven context bloat, brittle tool interfaces, checkpoint/result-capture gaps, and state-reconciliation issues. Of 39 completed trainings, 38 produced PR documentation. The interesting failures are systems failures, not reasoning failures — which is exactly the kind of thing an observability-first design is supposed to surface.</p>
+</section>
+<section id="links" class="level2">
+<h2 class="anchored" data-anchor-id="links">Links</h2>
+<ul>
+<li>Paper (OpenReview): <a href="https://openreview.net/forum?id=g0bJFA9gVT">SENPAI: Self-ExperimentatioN for Physical AI — An Observability-Based Research Harness</a></li>
+<li>Project site: <a href="https://wandb.github.io/senpai/">wandb.github.io/senpai</a></li>
+<li>Code: <a href="https://github.com/wandb/senpai">github.com/wandb/senpai</a></li>
+</ul>
 
 
 </section>
@@ -670,4 +641,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/tcapelle/capesite/edit/main/about.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/tcapelle/capesite/edit/main/posts/senpai-icml/index.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

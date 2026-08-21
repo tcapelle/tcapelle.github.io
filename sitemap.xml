@@ -2,42 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://tcapelle.github.io/socials.html</loc>
-    <lastmod>2026-08-21T14:37:45.617Z</lastmod>
+    <lastmod>2026-08-21T15:22:25.233Z</lastmod>
   </url>
   <url>
     <loc>https://tcapelle.github.io/talks.html</loc>
-    <lastmod>2026-08-21T14:37:45.617Z</lastmod>
+    <lastmod>2026-08-21T15:22:25.233Z</lastmod>
   </url>
   <url>
     <loc>https://tcapelle.github.io/posts/2025-02-11-custom-pipeline.html</loc>
-    <lastmod>2026-08-21T14:37:45.605Z</lastmod>
+    <lastmod>2026-08-21T15:22:25.204Z</lastmod>
   </url>
   <url>
     <loc>https://tcapelle.github.io/posts/2021-05-01-moving_mnist.html</loc>
-    <lastmod>2026-08-21T14:37:45.605Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tcapelle.github.io/posts/2021-02-26-image_resizing.html</loc>
-    <lastmod>2026-08-21T14:37:45.594Z</lastmod>
+    <lastmod>2026-08-21T15:22:25.203Z</lastmod>
   </url>
   <url>
     <loc>https://tcapelle.github.io/posts/2021-06-11-save_segmentation_masks.html</loc>
-    <lastmod>2026-08-21T14:37:45.605Z</lastmod>
+    <lastmod>2026-08-21T15:22:25.203Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tcapelle.github.io/posts/2021-02-26-image_resizing.html</loc>
+    <lastmod>2026-08-21T15:22:25.192Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tcapelle.github.io/posts/senpai-icml/index.html</loc>
+    <lastmod>2026-08-21T15:22:25.233Z</lastmod>
   </url>
   <url>
     <loc>https://tcapelle.github.io/posts/bluesky_toxicity/flagging_toxic_content.html</loc>
-    <lastmod>2026-08-21T14:37:45.606Z</lastmod>
+    <lastmod>2026-08-21T15:22:25.204Z</lastmod>
   </url>
   <url>
     <loc>https://tcapelle.github.io/posts/2021-03-15-image_sequences.html</loc>
-    <lastmod>2026-08-21T14:37:45.603Z</lastmod>
+    <lastmod>2026-08-21T15:22:25.201Z</lastmod>
   </url>
   <url>
     <loc>https://tcapelle.github.io/about.html</loc>
-    <lastmod>2026-08-21T14:37:45.552Z</lastmod>
+    <lastmod>2026-08-21T15:22:25.145Z</lastmod>
   </url>
   <url>
     <loc>https://tcapelle.github.io/index.html</loc>
-    <lastmod>2026-08-21T14:37:45.583Z</lastmod>
+    <lastmod>2026-08-21T15:22:25.180Z</lastmod>
   </url>
 </urlset>
